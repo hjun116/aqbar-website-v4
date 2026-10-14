@@ -1,12 +1,12 @@
 # AQbar 공식 웹사이트 (v4)
 
-**운영용 사이트 소스입니다.** 도메인을 이 레포로 옮긴 뒤에는 `main` 에 푸시하면 `https://aqbar.ai` 에 그대로 반영됩니다.
+**운영 중인 실제 서비스 사이트입니다.** 이 레포의 `main` 에 푸시하면 `https://aqbar.ai` 에 그대로 반영됩니다. (2026-10-14 v3 → v4 도메인 전환 완료)
 
 - 서비스 주소: **https://aqbar.ai**
 - 배포 방식: GitHub Pages (`main` 브랜치 기준 자동 배포)
-- 연결 도메인: `CNAME` 파일 (도메인 전환하는 날 추가)
+- 연결 도메인: `CNAME` 파일에 `aqbar.ai` (지우지 마세요. 지우면 도메인 연결이 끊깁니다)
 
-> ⚠️ 도메인 연결 후에는 `main` 에 푸시하는 순간 운영 사이트가 바뀝니다.
+> ⚠️ `main` 에 푸시하는 순간 운영 사이트가 바뀝니다.
 > 작업은 항상 별도 브랜치에서 하고, 로컬에서 눈으로 확인한 뒤 합치세요.
 
 ---
@@ -57,6 +57,7 @@
 ├── favicon.ico / favicon.svg / favicon-32.png / apple-touch-icon.png
 ├── robots.txt                  검색엔진 수집 규칙
 ├── sitemap.xml                 검색엔진용 페이지 목록
+├── CNAME                       연결 도메인 (aqbar.ai)
 └── .nojekyll                   GitHub Pages 설정용 빈 파일
 ```
 
@@ -181,12 +182,12 @@ Google Analytics 4 가 모든 페이지에 설치되어 있습니다. (측정 ID
 ## 레포 이력
 
 - `aqbar-website-v4` — **현재 버전 (이 레포)**
-- `aqbar-website-v3` — 이전 버전. 도메인 전환 후 private 으로 전환해 보관
+- `aqbar-website-v3` — 이전 버전 (2026-10-14 까지 운영). private 으로 전환해 보관
 - `aqbar-website-v2`, `aqbar-website-v1` — 이전 버전. private 으로 보관 중
 
 ---
 
 ## 주의할 점
 
-- **헤더·푸터가 메인과 개인정보 처리방침에 각각 따로 있습니다.** 메뉴를 바꾸면 두 곳을 모두 고쳐야 합니다
+- **헤더·푸터가 메인(`index.html`)과 개인정보 처리방침 두 페이지(`privacy/`, `privacy/v1-1/`)에 각각 따로 있습니다.** 메뉴·푸터를 바꾸면 세 파일을 모두 고쳐야 합니다
 - **메인 페이지의 `z-index` 는 현재 최대 20** (상단 고정 메뉴). 그 위에 무언가를 띄우려면 30 이상을 쓰세요
