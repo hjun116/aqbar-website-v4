@@ -50,6 +50,7 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   --m-sec:120px 24px;--m-film:32px 24px 120px;--m-beyond:140px 24px 24px;--m-hero:166px 24px 0;
   --m-rep-pad:40px 36px;--m-form-cols:96px minmax(0,1fr);--m-form-gap:16px;
   --m-std-cols:minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr);
+  --why-mock-h:276px;--doc-shift:12px;
 }
 @media (max-width:759.98px){
   :root{
@@ -57,6 +58,7 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
     --m-sec:80px 20px;--m-film:24px 16px 80px;--m-beyond:88px 20px 20px;--m-hero:120px 20px 0;
     --m-rep-pad:28px 20px;--m-form-cols:minmax(0,1fr);--m-form-gap:8px;
     --m-std-cols:minmax(0,1fr);
+    --why-mock-h:300px;--doc-shift:0px;
   }
   .aq-link-h{display:none!important}
 }
@@ -157,7 +159,7 @@ button:disabled{opacity:.7;cursor:default!important}
         <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
           <div style="font-size:12px;font-weight:700;color:#4f46e5;letter-spacing:.04em">TASK</div>
           <div style="font-size:18px;font-weight:750;letter-spacing:-.02em;line-height:1.4">3분기 브랜드 마케팅 예산 30억, 어떻게 배분하시겠습니까?</div>
-          <div style="display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.65;color:#4b5563"><span style="font-size:13px;font-weight:700;color:#374151">표 3. 채널별 성과</span><div style="display:flex;gap:8px;align-items:baseline"><i style="width:4px;height:4px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span><span style="white-space:nowrap">앱 내 퍼포먼스 ROAS <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">9.8</b> ·</span> <span style="white-space:nowrap">기존 구매 고객 비중 <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">72%</b></span></span></div><div style="display:flex;gap:8px;align-items:baseline"><i style="width:4px;height:4px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span><span style="white-space:nowrap">오프라인 매장 이벤트 ROAS 14.2 ·</span> <span style="white-space:nowrap">외국인 비중 44%</span></span></div><span style="margin-top:4px;font-size:12px;line-height:1.5;color:#9ca3af">※ 성과 수치는 각 담당 조직이 보고한 값입니다.</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.65;color:#4b5563"><span style="font-size:13px;font-weight:700;color:#374151">표 3. 채널별 성과</span><div style="display:flex;gap:8px;align-items:baseline"><i style="width:4px;height:4px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>앱 내 퍼포먼스 ROAS <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">9.8</b> · 기존 구매 고객 <span style="white-space:nowrap">비중 <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">72%</b></span></span></div><div style="display:flex;gap:8px;align-items:baseline"><i style="width:4px;height:4px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>오프라인 매장 이벤트 ROAS 14.2 · 외국인 <span style="white-space:nowrap">비중 44%</span></span></div><span style="margin-top:4px;font-size:12px;line-height:1.5;color:#9ca3af">※ 성과 수치는 각 담당 조직이 보고한 값입니다.</span></div>
         </div>
         <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
           <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:6px;background:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);display:block"></span><b style="font-size:14px;color:#374151">AI 어시스턴트</b></div>
@@ -347,15 +349,15 @@ button:disabled{opacity:.7;cursor:default!important}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px">
       <div style="background:#f7f7f8;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px">
         <div style="position:relative;height:var(--doc-h,300px);margin-bottom:8px;transform:scale(var(--doc-s,1));transform-origin:center top">
-          <div style="position:absolute;left:50%;top:34px;width:200px;height:170px;margin-left:-196px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(-9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <div style="position:absolute;left:50%;top:calc(34px - var(--doc-shift));width:200px;height:170px;margin-left:-196px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(-9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
             <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">포트폴리오</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">PDF · 24p</span></div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><i style="display:block;height:34px;background:#f3f4f6;border-radius:5px"></i><i style="display:block;height:34px;background:#f3f4f6;border-radius:5px"></i></div><i style="display:block;height:6px;width:80%;background:#f0f0f3;border-radius:3px"></i>
           </div>
-          <div style="position:absolute;left:50%;top:34px;width:200px;height:170px;margin-left:-4px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+          <div style="position:absolute;left:50%;top:calc(34px - var(--doc-shift));width:200px;height:170px;margin-left:-4px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
             <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">이력서</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">경력 4년</span></div>
             <div style="display:flex;gap:8px;align-items:center"><i style="width:26px;height:26px;border-radius:50%;background:#e5e7eb;display:block;flex:none"></i><div style="display:flex;flex-direction:column;gap:5px;flex:1"><i style="display:block;height:6px;width:70%;background:#f0f0f3;border-radius:3px"></i><i style="display:block;height:6px;width:50%;background:#f0f0f3;border-radius:3px"></i></div></div><i style="display:block;height:6px;width:90%;background:#f0f0f3;border-radius:3px"></i><i style="display:block;height:6px;width:76%;background:#f0f0f3;border-radius:3px"></i>
           </div>
-          <div style="position:absolute;left:50%;top:90px;width:250px;height:180px;margin-left:-125px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 18px 40px rgba(30,27,75,.14);transform:rotate(-1.5deg);padding:14px 18px;display:flex;flex-direction:column;gap:9px">
+          <div style="position:absolute;left:50%;top:calc(90px - var(--doc-shift));width:250px;height:180px;margin-left:-125px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 18px 40px rgba(30,27,75,.14);transform:rotate(-1.5deg);padding:14px 18px;display:flex;flex-direction:column;gap:9px">
             <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">자기소개서</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">1,500자</span></div>
             <span style="font-size:12px;line-height:1.55;color:#6b7280">저는 데이터 기반의 문제 해결 역량과 뛰어난 커뮤니케이션 능력을 바탕으로…</span>
             <i style="display:block;height:6px;width:88%;background:#f0f0f3;border-radius:3px"></i>
@@ -370,7 +372,7 @@ button:disabled{opacity:.7;cursor:default!important}
       </div>
       <div style="background:#08080f;color:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden">
         <div style="position:absolute;inset:0;background:radial-gradient(60% 70% at 100% 100%,rgba(109,76,255,.45) 0%,transparent 70%)"></div>
-        <div style="position:relative;height:300px;margin-bottom:8px;display:flex;flex-direction:column">
+        <div style="position:relative;height:var(--why-mock-h);margin-bottom:8px;display:flex;flex-direction:column">
           <div style="flex:1;display:flex;flex-direction:column;background:#fff;color:#0b0b0f;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)">
             <div style="height:36px;flex:none;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:11px;color:#6b7280">
               <img src="assets/aqbar-logo.svg" alt="AQbar" style="height:13px;display:block">
@@ -624,7 +626,7 @@ button:disabled{opacity:.7;cursor:default!important}
   function updateDocScale() {
     var s = Math.min(1, Math.max(0.55, (window.innerWidth - 112) / 410));
     root.style.setProperty('--doc-s', String(s));
-    root.style.setProperty('--doc-h', Math.round(300 * s) + 'px');
+    root.style.setProperty('--doc-h', Math.round((isNarrow() ? 300 : 276) * s) + 'px');
   }
   updateDocScale();
   window.addEventListener('resize', function () {
