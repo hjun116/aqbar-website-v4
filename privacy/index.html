@@ -23,12 +23,11 @@
 <meta property="og:description" content="주식회사 에이큐바의 개인정보 처리방침입니다.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://aqbar.ai/privacy/">
-<meta property="og:image" content="https://aqbar.ai/assets/logo_2.png?v=2">
-<meta property="og:image:secure_url" content="https://aqbar.ai/assets/logo_2.png?v=2">
-<meta property="og:image:width" content="1296">
-<meta property="og:image:height" content="346">
+<meta property="og:image" content="https://aqbar.ai/assets/og-main.png?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://aqbar.ai/assets/logo_2.png?v=2">
+<meta name="twitter:image" content="https://aqbar.ai/assets/og-main.png?v=1">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -37,14 +36,14 @@
 
 <style>
   :root {
-    --primary:      #13345e;
-    --primary-deep: #0d2342;
-    --accent:       #4b3fd6;
-    --ink:          #18202e;
-    --muted:        #5a6573;
+    --primary:      #4f46e5;
+    --primary-deep: #0b0b0f;
+    --accent:       #4f46e5;
+    --ink:          #1f2937;
+    --muted:        #6b7280;
     --bg:           #ffffff;
-    --bg-alt:       #f5f4ef;
-    --border:       #e5e3d9;
+    --bg-alt:       #f7f7f8;
+    --border:       #ececf2;
     --gutter:       32px;
     --doc:          860px;
   }
@@ -59,7 +58,7 @@
      블록(표의 그룹 제목 등)을 자동으로 확대해 본문보다 커 보이게 만든다. */
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body {
-    font-family: 'Pretendard', 'Pretendard Variable', -apple-system, system-ui, sans-serif;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     color: var(--ink);
@@ -70,36 +69,26 @@
   ::selection { background: #d8d4f7; }
   a { color: var(--accent); }
 
-  /* ── 헤더 (메인 페이지와 같은 위치 규칙) ── */
-  .mn-header{position:sticky;top:0;z-index:50;background:var(--primary-deep);border-bottom:1px solid rgba(255,255,255,.08);}
-  .mn-header__inner{max-width:1120px;margin:0 auto;padding:0 var(--gutter);height:68px;display:flex;align-items:center;justify-content:space-between;gap:28px;}
-  .mn-logo{display:flex;align-items:center;flex:none;line-height:0;}
-  .mn-logo img{height:27px;width:auto;display:block;}
-  .aq-nav-links{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:500;}
-  .aq-nav-links a{color:rgba(255,255,255,.75);text-decoration:none;transition:color .15s;white-space:nowrap;}
-  .aq-nav-links a:hover{color:#fff;}
-  .aq-nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);margin:0 6px;flex:none;}
-  .aq-nav-links a.aq-nav-out{color:#fff;font-weight:700;}
-  .aq-nav-links a.aq-nav-out:hover{color:rgba(255,255,255,.75);}
-  .aq-nav-out__arrow{font-size:13px;margin-left:1px;}
-  .aq-nav-cta{display:flex;align-items:center;gap:12px;flex:none;white-space:nowrap;}
-  .aq-nav-cta a{font-size:14.5px;font-weight:600;color:var(--primary-deep);text-decoration:none;padding:10px 20px;background:#fff;border-radius:4px;transition:background .15s;}
-  .aq-nav-cta a:hover{background:#c7d6ef;}
-  .aq-nav-toggle{display:none;background:none;border:1.5px solid rgba(255,255,255,.3);border-radius:6px;cursor:pointer;padding:7px 10px;color:#fff;flex-direction:column;gap:5px;flex:none;}
-  .aq-nav-toggle span{display:block;width:18px;height:2px;background:currentColor;border-radius:1px;transition:transform .22s,opacity .18s;}
-  .aq-nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .aq-nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(0);}
-  .aq-nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-  @media(max-width:920px){
-    .aq-nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--primary-deep);flex-direction:column;align-items:stretch;gap:0;padding:4px 0 12px;border-bottom:1px solid rgba(255,255,255,.1);z-index:49;}
-    .aq-nav-links.open{display:flex;}
-    .aq-nav-links a{padding:13px 24px;font-size:15px;}
-    .aq-nav-sep{display:none;}
-    .aq-nav-toggle{display:flex;}
-    .aq-nav-cta{display:none;}
-  }
-  @media (max-width: 480px) {
-    :root { --gutter: 16px; }
+  /* ── 상단 메뉴 (메인 페이지 밝은 메뉴와 동일) ── */
+  .pp-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.82);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(15,15,30,.08);box-shadow:0 6px 24px rgba(30,27,75,.06)}
+  .pp-nav__inner{max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:32px}
+  .pp-nav__logo{display:flex;flex:none;line-height:0}
+  .pp-nav__logo img{height:24px;width:auto;display:block}
+  .pp-nav__links{display:flex;gap:28px;flex:1;font-size:15px;font-weight:500}
+  .pp-nav__links a{color:#4b5563;text-decoration:none;white-space:nowrap}
+  .pp-nav__links a:hover{color:#0b0b0f}
+  .pp-nav__cta{flex:none;background:#4f39f6;color:#fff!important;font-size:15px;font-weight:700;padding:10px 20px;border-radius:10px;text-decoration:none}
+  .pp-nav__cta:hover{background:#3f2bd9}
+  .pp-nav__burger{display:none;flex:none;width:44px;height:44px;margin-left:-20px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:0}
+  .pp-nav__burger i{display:block;width:20px;height:2px;border-radius:1px;background:#0b0b0f}
+  .pp-nav__menu{display:flex;flex-direction:column;padding:8px 20px 16px;background:#fff;border-top:1px solid #f0f0f4;box-shadow:0 16px 30px rgba(30,27,75,.12)}
+  .pp-nav__menu a{color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6;text-decoration:none}
+  .pp-nav__menu a:last-child{border-bottom:0}
+  [hidden]{display:none!important}
+  @media (max-width:759.98px){
+    .pp-nav__links{display:none}
+    .pp-nav__cta{margin-left:auto}
+    .pp-nav__burger{display:flex}
   }
 
   /* ── 본문 ── */
@@ -115,6 +104,8 @@
     margin: 0; font-size: 12px; font-weight: 700;
     letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
   }
+  /* 메인 페이지 섹션 라벨(REPORT 등)과 같은 보라색·자간 */
+  .pp-main .pp-eyebrow { color: var(--accent); font-size: 13px; letter-spacing: .2em; }
   .pp-title {
     margin: 10px 0 0;
     font-size: clamp(26px, 5vw, 36px); font-weight: 800;
@@ -203,47 +194,42 @@
     .pp-table { font-size: 12px; }
   }
 
-  /* ── 푸터 (메인 페이지와 같은 위치 규칙) ── */
-  .mn-footer{background:var(--primary-deep);color:#aebfd6;}
-  .mn-footer__inner{max-width:1120px;margin:0 auto;padding:54px var(--gutter) 40px;}
-  .mn-footer__row{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-  .mn-footer__brand{max-width:400px;}
-  .mn-footer__brand img{height:32px;width:auto;display:block;}
-  .mn-footer__tag{margin:18px 0 0;font-size:18px;font-weight:600;line-height:1.5;color:#fff;word-break:keep-all;}
-  .mn-footer__label{font-family:'Pretendard','Pretendard Variable',sans-serif;font-size:11px;letter-spacing:.1em;color:#637da3;text-transform:uppercase;margin-bottom:14px;}
-  .mn-footer__contact{display:flex;flex-direction:column;gap:10px;font-size:14px;color:#aebfd6;}
-  .mn-footer__contact a{color:#aebfd6;text-decoration:none;}
-  .mn-footer__contact a:hover{color:#fff;}
-  .mn-footer__contact p{margin:0;line-height:1.6;}
-  .mn-footer__legal{
-    margin-top:44px;padding-top:22px;border-top:1px solid #1d3658;
-    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-    font-size:12.5px;color:#637da3;
-  }
-  .mn-footer__legal a{color:#9fc0e8;}
-  br.mn-br-mo{display:none;}
-  @media(max-width:768px){
-    br.mn-br-mo{display:inline;}
-    .mn-footer__label{font-size:12.5px;font-weight:600;}
-    .mn-footer__tag{font-size:17px;}
-  }
+  /* ── 푸터 (메인 페이지와 동일) ── */
+  .pp-footer{background:#08080f;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.08);padding:40px 24px}
+  .pp-footer__inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;font-size:13px;line-height:1.8}
+  .pp-footer__brand{display:flex;flex-direction:column;gap:10px}
+  .pp-footer__brand img{height:22px;width:auto;align-self:flex-start;display:block}
+  .pp-footer__tag{color:#fff;font-weight:600;font-size:18px}
+  .pp-footer__info{display:flex;flex-direction:column}
+  .pp-footer a{color:rgba(255,255,255,.75);text-decoration:none}
+  .pp-footer a:hover{color:#fff}
+  @media (max-width:759.98px){ .pp-footer__tag{font-size:16px} }
 </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="mn-header">
-    <div class="mn-header__inner">
-      <a href="../" class="mn-logo" aria-label="AQbar 홈으로">
-        <img src="../assets/aqbar-logo-white.svg" alt="AQbar">
-      </a>
-      <nav class="aq-nav-links">
-        <a href="../">홈</a>
-      </nav>
-      <button class="aq-nav-toggle" aria-label="메뉴 열기" aria-expanded="false" onclick="(function(b){var n=document.querySelector('.aq-nav-links');var o=n.classList.toggle('open');b.setAttribute('aria-expanded',String(o));})(this)"><span></span><span></span><span></span></button>
-      <div class="aq-nav-cta"><a href="../#contact">문의하기</a></div>
+  <!-- ===== HEADER (메인 페이지와 동일한 메뉴) ===== -->
+  <nav class="pp-nav" id="pp-nav">
+    <div class="pp-nav__inner">
+      <a href="../" class="pp-nav__logo" aria-label="AQbar 홈"><img src="../assets/aqbar-logo.svg" alt="AQbar"></a>
+      <div class="pp-nav__links">
+        <a href="../#process">평가 과정</a>
+        <a href="../#report">AQbar 리포트</a>
+        <a href="../#trust">도입</a>
+        <a href="../#standard">One Standard</a>
+        <a href="../#faq">FAQ</a>
+      </div>
+      <a href="../#contact" class="pp-nav__cta">문의하기</a>
+      <button type="button" class="pp-nav__burger" id="pp-burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="pp-menu"><i></i><i></i><i></i></button>
     </div>
-  </header>
+    <div class="pp-nav__menu" id="pp-menu" hidden>
+      <a href="../#process">평가 과정</a>
+      <a href="../#report">AQbar 리포트</a>
+      <a href="../#trust">도입</a>
+      <a href="../#standard">One Standard</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+  </nav>
 
   <!-- ===== 본문 ===== -->
   <main class="pp-main">
@@ -722,41 +708,36 @@
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="mn-footer">
-    <div class="mn-footer__inner">
-      <div class="mn-footer__row">
-        <div class="mn-footer__brand">
-          <img src="../assets/aqbar-logo-white.svg" alt="AQbar">
-          <p class="mn-footer__tag">AI 시대, 인재를 바라보는 새로운 기준을 만듭니다.</p>
-        </div>
-        <div>
-          <div class="mn-footer__label">CONTACT</div>
-          <div class="mn-footer__contact">
-            <a href="mailto:info@aqbar.ai">info@aqbar.ai</a>
-            <p>경기도 성남시 수정구 금토로 52, E동 5층<br>(판교 제2테크노밸리 G2블록, 경기스타트업브릿지)</p>
-          </div>
-        </div>
-      </div>
-      <div class="mn-footer__legal">
-        <span>주식회사 에이큐바&nbsp;|&nbsp;대표: 전혜선&nbsp;|&nbsp;사업자등록번호: 527-87-03935&nbsp;|&nbsp;<br class="mn-br-mo"><a href="../privacy/">개인정보 처리방침</a></span>
-        <span>&copy; 2026 AQbar. All rights reserved.</span>
+  <!-- ===== FOOTER (메인 페이지와 동일) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__inner">
+      <div class="pp-footer__brand"><img src="../assets/aqbar-logo-white.svg" alt="AQbar"><span class="pp-footer__tag">AI 시대, 인재를 바라보는 새로운 기준을 만듭니다.</span></div>
+      <div class="pp-footer__info">
+        <span>경기도 성남시 수정구 금토로 52, E동 5층 (경기스타트업브릿지)</span>
+        <span>주식회사 에이큐바 | 대표 전혜선 | 사업자등록번호 527-87-03935</span>
+        <span><a href="mailto:info@aqbar.ai">info@aqbar.ai</a> · <a href="../privacy/">개인정보 처리방침</a> · © 2026 AQbar</span>
       </div>
     </div>
   </footer>
 
 <script>
-(function(){
-  var nav = document.querySelector('.aq-nav-links');
-  var toggle = document.querySelector('.aq-nav-toggle');
-  if(!nav || !toggle) return;
-  nav.addEventListener('click', function(e){
-    if(e.target.closest('a')){
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
-      toggle.setAttribute('aria-label','메뉴 열기');
-    }
-  });
+(function () {
+  'use strict';
+  // 모바일 햄버거 메뉴: 버튼으로 열고 닫기, 링크·바깥·Esc 로 닫기
+  var nav = document.getElementById('pp-nav');
+  var burger = document.getElementById('pp-burger');
+  var menu = document.getElementById('pp-menu');
+  if (!nav || !burger || !menu) return;
+  function setMenu(open) {
+    menu.hidden = !open;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  }
+  burger.addEventListener('click', function () { setMenu(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !nav.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); burger.focus(); } });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 760) setMenu(false); });
 })();
 </script>
 </body>
