@@ -83,6 +83,8 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   .aq-why-desc{display:block;margin-top:2px;font-size:14px;line-height:1.5}
   .aq-ft-btn{margin-left:auto}
   .aq-std-row > span{font-size:27px!important}
+  .aq-picks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}
+  .aq-pick{width:100%;text-align:center}
 }
 /* 360px대 작은 폰: Why AQbar 카드 여백을 줄여 설명이 한 줄에 들어가게 */
 @media (max-width:374.98px){.aq-why-card{padding:28px 20px!important}}
@@ -580,7 +582,7 @@ button:disabled{opacity:.7;cursor:default!important}
     <div style="width:fit-content;max-width:100%;box-sizing:border-box;min-width:0;background:#fff;color:#0b0b0f;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 100px rgba(0,0,0,.45)">
       <form id="aq-contact-form" novalidate style="display:flex;flex-direction:column;gap:16px">
           <div style="display:grid;grid-template-columns:var(--m-form-cols);align-items:center;gap:var(--m-form-gap)"><span id="aq-interest-label" style="font-size:14px;font-weight:600;color:#374151">관심 항목</span>
-            <div role="group" aria-labelledby="aq-interest-label" style="display:flex;flex-wrap:wrap;gap:8px">
+            <div class="aq-picks" role="group" aria-labelledby="aq-interest-label" style="display:flex;flex-wrap:wrap;gap:8px">
               <button data-pick="Free Trial" data-ft aria-pressed="true" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">Free Trial</button>
               <button data-pick="채용 평가" aria-pressed="true" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">채용 평가</button>
               <button data-pick="조직 진단" aria-pressed="false" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">조직 진단</button>
