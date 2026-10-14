@@ -67,13 +67,15 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
 @media (max-width:759.98px){
   .aq-br-mo{display:inline}
   .aq-beyond-title{font-size:min(40px,calc((100vw - 40px) * .0996))!important;white-space:nowrap}
-  .aq-report-points{flex-direction:column;align-items:flex-start;justify-content:flex-start!important;gap:10px!important}
+  .aq-report-points{flex-direction:column;align-items:flex-start;justify-content:flex-start!important;gap:10px!important;align-self:center;width:fit-content;max-width:100%}
   .aq-ind-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   .aq-ind{padding:20px 16px!important;gap:8px!important}
   .aq-ind-top{margin-bottom:6px!important}
   .aq-ind-top svg{width:26px;height:26px}
   .aq-ind-name{font-size:16px!important;line-height:1.35}
   .aq-ind-desc{display:none!important}
+  .aq-impact-grid{grid-template-columns:fit-content(100%)!important;justify-content:center}
+  .aq-contact-sub{font-size:17px!important}
 }
 @media (min-width:760px){.aq-link-v{display:none!important}}
 
@@ -236,7 +238,7 @@ button:disabled{opacity:.7;cursor:default!important}
       </div>
       <div style="padding:32px;display:flex;flex-direction:column;gap:24px;background:#fcfcfd">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
-        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#0d9488;display:block"></i><b style="font-size:14px;letter-spacing:.06em">강점</b><span style="margin-left:auto;font-size:12px;color:#9ca3af">근거 턴 표기</span></div>
+        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#0d9488;display:block"></i><b style="font-size:14px;letter-spacing:.06em">강점</b></div>
             <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
               <b style="font-size:24px;letter-spacing:-.04em;color:#0d9488;line-height:1">85</b>
               <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">실행가능성</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 9</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">협의 결과에 따라 예산 폭을 조정하는 조건부 실행안</span></div>
@@ -246,7 +248,7 @@ button:disabled{opacity:.7;cursor:default!important}
               <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">논증 구조화</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 12</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">AI 안의 한계를 짚고 예산 분할 근거를 제시</span></div>
             </div>
         </div>
-        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#e11d48;display:block"></i><b style="font-size:14px;letter-spacing:.06em">약점</b><span style="margin-left:auto;font-size:12px;color:#9ca3af">면접에서 확인</span></div>
+        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#e11d48;display:block"></i><b style="font-size:14px;letter-spacing:.06em">약점</b></div>
             <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
               <b style="font-size:24px;letter-spacing:-.04em;color:#e11d48;line-height:1">45</b>
               <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">문제 구조화</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 3</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">기존 고객 72%의 재구매와 광고 효과를 구분 안 함</span></div>
@@ -262,7 +264,7 @@ button:disabled{opacity:.7;cursor:default!important}
         </div>
       </div>
         <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #ececf2;padding-top:16px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:13px;font-weight:700;color:#0b0b0f">맞춤 면접 질문</span><span style="font-size:12px;color:#9ca3af">약점 3개 → 면접 질문 5개</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:13px;font-weight:700;color:#0b0b0f">맞춤 면접 질문</span></div>
         <div data-qlist style="position:relative;display:flex;flex-direction:column;padding-left:18px">
           <i style="position:absolute;left:0;top:8px;bottom:8px;width:2px;background:#f1f1f3;border-radius:1px;display:block"></i>
           <i style="position:absolute;left:0;top:8px;width:2px;height:var(--q-line,0%);background:linear-gradient(180deg,#e11d48,#a855f7);border-radius:1px;display:block;transition:height .6s cubic-bezier(.2,.8,.2,1)"></i>
@@ -429,7 +431,7 @@ button:disabled{opacity:.7;cursor:default!important}
       <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">평가 방식을 바꾸면,<br>채용 의사결정이 달라집니다</h2>
       <p style="margin:0;font-size:17px;line-height:1.75;color:#4b5563">AQbar와 함께 <b style="color:#0b0b0f">더 빠르게, 더 정확하게, 더 공정하게</b> 선별합니다.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 40px;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+    <div class="aq-impact-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 40px;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
       <div style="padding:28px 0 36px;display:flex;flex-direction:column;gap:14px">
         <div style="display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" style="display:block"><path d="M6 20V12"></path><path d="M12 20V4"></path><path d="M18 20v-6"></path></svg><span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#4f46e5">DATA</span></div>
         <span style="font-size:22px;font-weight:750;letter-spacing:-.03em;line-height:1.4">채용 의사결정 객관성 향상</span>
@@ -560,7 +562,7 @@ button:disabled{opacity:.7;cursor:default!important}
   <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:56px;align-items:center">
     <div style="width:100%;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
       <div style="font-family:'Paperlogy','Pretendard Variable',sans-serif;font-size:clamp(34px,8vw,104px);font-weight:800;letter-spacing:-.045em;line-height:1.05;white-space:nowrap">Beyond the <span style="background:linear-gradient(90deg,#c084fc,#818cf8 50%,#2dd4bf);-webkit-background-clip:text;background-clip:text;color:transparent">Answer</span></div>
-      <p style="margin:16px 0 0;font-size:19px;line-height:1.7;color:rgba(255,255,255,.78)">AI가 실행을 대신하는 시대, <b style="color:#d1d5db">AI와 함께 <br class="aq-br-mo">더 나은 판단을 내리는 힘</b>이 경쟁력입니다.<br><span style="white-space:nowrap"><b style="color:#d1d5db">실무에 필요한 문제해결력</b>을 데이터로 확인하세요.</span></p>
+      <p class="aq-contact-sub" style="margin:16px 0 0;font-size:19px;line-height:1.7;color:rgba(255,255,255,.78)">AI가 실행을 대신하는 시대, <b style="color:#d1d5db">AI와 함께 <br class="aq-br-mo">더 나은 판단을 내리는 힘</b>이 경쟁력입니다.<br><span style="white-space:nowrap"><b style="color:#d1d5db">실무에 필요한 문제해결력</b>을 데이터로 확인하세요.</span></p>
     </div>
     <div style="width:fit-content;max-width:100%;box-sizing:border-box;min-width:0;background:#fff;color:#0b0b0f;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 100px rgba(0,0,0,.45)">
       <form id="aq-contact-form" novalidate style="display:flex;flex-direction:column;gap:16px">
