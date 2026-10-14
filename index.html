@@ -82,6 +82,7 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   .aq-why-sep{display:none}
   .aq-why-desc{display:block;margin-top:2px;font-size:14px;line-height:1.5}
   .aq-ft-btn{margin-left:auto}
+  .aq-std-row > span{font-size:27px!important}
 }
 /* 360px대 작은 폰: Why AQbar 카드 여백을 줄여 설명이 한 줄에 들어가게 */
 @media (max-width:374.98px){.aq-why-card{padding:28px 20px!important}}
@@ -174,7 +175,7 @@ button:disabled{opacity:.7;cursor:default!important}
       <a href="#film" data-play-film class="hv-ghost" style="color:#fff;font-size:17px;font-weight:600;padding:16px 26px;border-radius:12px;white-space:nowrap;border:1px solid rgba(255,255,255,.2)">서비스 영상 보기</a>
     </div>
 
-    <div style="width:100%;max-width:1080px;margin-top:40px;background:#fff;color:#0b0b0f;border-radius:20px 20px 0 0;box-shadow:0 -10px 80px rgba(109,76,255,.35),0 0 0 1px rgba(255,255,255,.08);overflow:hidden;text-align:left">
+    <div data-hero-card style="width:100%;max-width:1080px;margin-top:40px;background:#fff;color:#0b0b0f;border-radius:20px 20px 0 0;box-shadow:0 -10px 80px rgba(109,76,255,.35),0 0 0 1px rgba(255,255,255,.08);overflow:hidden;text-align:left">
       <div style="height:52px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px;padding:0 20px;font-size:13px;color:#6b7280;flex-wrap:nowrap;overflow:hidden">
         <img src="assets/aqbar-logo.svg" alt="AQbar" style="height:18px;display:block;margin-right:8px">
         <span style="display:var(--m-chip);background:#f3f4f6;padding:5px 10px;border-radius:6px;white-space:nowrap">지원 회사: <b style="color:#111">에이큐바</b></span>
@@ -495,17 +496,17 @@ button:disabled{opacity:.7;cursor:default!important}
     </div>
     <div style="width:100%;display:grid;grid-template-columns:var(--m-std-cols);align-items:stretch;text-align:left;position:relative">
       <div style="flex:1 1 260px;min-width:0;background:#fff;border:2px solid #4f46e5;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;color:#0b0b0f;box-shadow:0 24px 60px rgba(79,70,229,.18)">
-        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#a855f7;font-variant-numeric:tabular-nums">01</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">채용 평가</span></div>
+        <div class="aq-std-row" style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#a855f7;font-variant-numeric:tabular-nums">01</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">채용 평가</span></div>
         <span style="font-size:16px;line-height:1.65;color:#4b5563">서류와 면접 사이, 지원자의 실제 문제해결 능력 및 실무 역량을 확인합니다.</span>
       </div>
       <div style="display:flex;align-items:center;justify-content:center;min-height:48px"><div class="aq-link-h" style="position:relative;width:100%;height:4px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#a855f7,#4f46e5);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;top:-5px;left:-7px;animation:aqFlow 1.6s linear 0s infinite"></i></div><div class="aq-link-v" style="position:relative;width:4px;height:48px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,#a855f7,#4f46e5);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;left:-5px;top:-7px;animation:aqFlowV 1.6s linear 0s infinite"></i></div></div>
       <div style="flex:1 1 260px;min-width:0;background:#fff;border:1.5px solid #e5e7eb;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;color:#0b0b0f;box-shadow:0 24px 60px rgba(79,70,229,.08)">
-        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#4f46e5;font-variant-numeric:tabular-nums">02</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">조직 진단</span></div>
+        <div class="aq-std-row" style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#4f46e5;font-variant-numeric:tabular-nums">02</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">조직 진단</span></div>
         <span style="font-size:16px;line-height:1.65;color:#4b5563">구성원의 역량을 부서 · 직급별로 진단하고, 교육 전후 변화를 숫자로 확인합니다.</span>
       </div>
       <div style="display:flex;align-items:center;justify-content:center;min-height:48px"><div class="aq-link-h" style="position:relative;width:100%;height:4px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#4f46e5,#14b8a6);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;top:-5px;left:-7px;animation:aqFlow 1.6s linear 0s infinite"></i></div><div class="aq-link-v" style="position:relative;width:4px;height:48px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,#4f46e5,#14b8a6);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;left:-5px;top:-7px;animation:aqFlowV 1.6s linear 0s infinite"></i></div></div>
       <div style="flex:1 1 260px;min-width:0;background:#fff;border:1.5px solid #e5e7eb;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(79,70,229,.08)">
-        <div style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#14b8a6;font-variant-numeric:tabular-nums">03</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">역량 트래킹</span></div>
+        <div class="aq-std-row" style="display:flex;align-items:baseline;gap:12px"><span style="font-size:30px;font-weight:800;letter-spacing:-.04em;color:#14b8a6;font-variant-numeric:tabular-nums">03</span><span style="font-size:30px;font-weight:750;letter-spacing:-.03em">역량 트래킹</span></div>
         <span style="font-size:16px;line-height:1.65;color:#4b5563">조직에는 전체의 지형도를, 개인에게는 성장의 방향을 제시합니다.</span>
       </div>
     </div>
@@ -626,9 +627,10 @@ button:disabled{opacity:.7;cursor:default!important}
 
   // ── 상단 메뉴: 히어로를 지나면 라이트 모드 ──
   var nav = document.getElementById('aq-nav');
-  var hero = document.getElementById('top');
+  var heroCard = document.querySelector('[data-hero-card]');
   function updateNav() {
-    var past = hero ? hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().bottom + 1 : window.scrollY > 400;
+    // 히어로 아래쪽 흰색 평가 화면 예시가 메뉴 바에 닿으면 밝은 모드로
+    var past = heroCard ? heroCard.getBoundingClientRect().top <= nav.getBoundingClientRect().bottom : window.scrollY > 400;
     nav.classList.toggle('is-light', past);
   }
   window.addEventListener('scroll', updateNav, { passive: true });
@@ -644,11 +646,11 @@ button:disabled{opacity:.7;cursor:default!important}
     topBtn.blur();
   });
 
-  // ── [PC] 메뉴·버튼으로 섹션 이동 시 헤드라인 위 빈 공간을 섹션 위쪽 여백의 60%로 ──
-  // (직접 스크롤할 때의 화면과 모바일 동작은 그대로)
+  // ── 메뉴·버튼으로 섹션 이동 시 헤드라인 위 빈 공간을 섹션 위쪽 여백의 60%로 (PC·모바일) ──
+  // (직접 스크롤할 때의 화면은 그대로)
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]');
-    if (!a || isNarrow() || e.defaultPrevented) return;
+    if (!a || e.defaultPrevented) return;
     var id = a.getAttribute('href').slice(1);
     var el = id && document.getElementById(id);
     if (!el || id === 'film' || id === 'top') return;
@@ -702,6 +704,30 @@ button:disabled{opacity:.7;cursor:default!important}
     for (var i = 1; i < segs.length; i++) nRest += segs[i].chars.length;
     var t0 = null, lastShown = -1, built = false, bar = null;
 
+    // 타이핑 중에도 단어 중간에서 줄이 바뀌지 않도록, 단어마다 줄바꿈 금지 묶음으로 그린다
+    // (안 보이는 나머지 글자도 자리를 차지해 최종 줄 나눔과 똑같이 유지)
+    function buildSeg(s, k, withCaret) {
+      s.el.textContent = '';
+      var caretAt = withCaret ? k : -1, pos = 0;
+      var tokens = s.chars.join('').split(/( )/).filter(function (x) { return x; });
+      tokens.forEach(function (tok, ti) {
+        var start = pos, end = pos + tok.length; pos = end;
+        if (tok === ' ') {
+          var sp = document.createElement('span'); sp.textContent = ' ';
+          if (start >= k) sp.style.visibility = 'hidden';
+          s.el.appendChild(sp); return;
+        }
+        var word = document.createElement('span'); word.style.whiteSpace = 'nowrap';
+        var cut = Math.max(0, Math.min(tok.length, k - start));
+        if (cut) word.appendChild(document.createTextNode(tok.slice(0, cut)));
+        if (caretAt >= start && caretAt <= end && (caretAt > start || start === 0 || tokens[ti - 1] === ' ')) {
+          var c = document.createElement('span'); c.className = 'aq-caret';
+          bar = document.createElement('i'); c.appendChild(bar); word.appendChild(c); caretAt = -1;
+        }
+        if (cut < tok.length) { var rest = document.createElement('span'); rest.style.visibility = 'hidden'; rest.textContent = tok.slice(cut); word.appendChild(rest); }
+        s.el.appendChild(word);
+      });
+    }
     function render(t) {
       var shown = (t < 0.3 ? 0 : t < 1.4 ? Math.round(n1 * (t - 0.3) / 1.1) : n1) +
                   (t < 2.5 ? 0 : Math.min(nRest, Math.round(nRest * (t - 2.5) / 2.0)));
@@ -711,15 +737,9 @@ button:disabled{opacity:.7;cursor:default!important}
         var idx = 0, placed = false;
         segs.forEach(function (s) {
           var k = Math.max(0, Math.min(s.chars.length, shown - idx)); idx += s.chars.length;
-          s.el.textContent = s.chars.slice(0, k).join('');
-          if (!placed && (k < s.chars.length || idx >= shown)) {
-            var c = document.createElement('span'); c.className = 'aq-caret';
-            bar = document.createElement('i'); c.appendChild(bar); s.el.appendChild(c); placed = true;
-          }
-          if (k < s.chars.length) {
-            var rest = document.createElement('span'); rest.style.visibility = 'hidden';
-            rest.textContent = s.chars.slice(k).join(''); s.el.appendChild(rest);
-          }
+          var withCaret = !placed && (k < s.chars.length || idx >= shown);
+          if (withCaret) placed = true;
+          buildSeg(s, k, withCaret);
           if (s.kind === 'k' && done) {
             s.el.classList.add('is-done');
             var line = document.createElement('i'); line.className = 'aq-key-line'; s.el.appendChild(line);
