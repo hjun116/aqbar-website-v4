@@ -78,10 +78,12 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   .aq-contact-sub{font-size:17px!important}
   .aq-footer-tag{font-size:16px!important}
   .aq-why-panels{grid-template-columns:minmax(0,1fr)!important}
-  .aq-why-card{padding:28px 20px!important}
+  .aq-why-card{padding:28px 26px!important}
   .aq-why-sep{display:none}
   .aq-why-desc{display:block;margin-top:2px;font-size:14px;line-height:1.5}
 }
+/* 360px대 작은 폰: Why AQbar 카드 여백을 줄여 설명이 한 줄에 들어가게 */
+@media (max-width:374.98px){.aq-why-card{padding:28px 20px!important}}
 @media (min-width:760px){.aq-link-v{display:none!important}}
 
 /* 상단 메뉴: 히어로 위에서는 투명(다크), 지나가면 라이트 */
