@@ -94,7 +94,8 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
 
 /* 상단 메뉴: 히어로 위에서는 투명(다크), 지나가면 라이트 */
 .aq-nav{--nav-bg:rgba(8,8,15,0);--nav-bd:rgba(255,255,255,0);--nav-sh:none;--nav-ink:rgba(255,255,255,.72);--nav-ink-hi:#fff;--nav-dark-logo:1;--nav-light-logo:0}
-.aq-nav.is-light{--nav-bg:rgba(255,255,255,.82);--nav-bd:rgba(15,15,30,.08);--nav-sh:0 6px 24px rgba(30,27,75,.06);--nav-ink:#4b5563;--nav-ink-hi:#0b0b0f;--nav-dark-logo:0;--nav-light-logo:1}
+/* 모바일 햄버거 메뉴를 연 동안에도 밝은 모드 (흰 펼침 메뉴 위에서 로고·아이콘이 보이도록) */
+.aq-nav.is-light,.aq-nav.is-menu-open{--nav-bg:rgba(255,255,255,.82);--nav-bd:rgba(15,15,30,.08);--nav-sh:0 6px 24px rgba(30,27,75,.06);--nav-ink:#4b5563;--nav-ink-hi:#0b0b0f;--nav-dark-logo:0;--nav-light-logo:1}
 
 /* 마우스를 올렸을 때 */
 .hv-navlink:hover{color:var(--nav-ink-hi)!important}
@@ -669,6 +670,7 @@ button:disabled{opacity:.7;cursor:default!important}
   var menu = document.getElementById('aq-menu');
   function setMenu(open) {
     menu.hidden = !open;
+    nav.classList.toggle('is-menu-open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
   }
