@@ -81,6 +81,7 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   .aq-why-card{padding:28px 26px!important}
   .aq-why-sep{display:none}
   .aq-why-desc{display:block;margin-top:2px;font-size:14px;line-height:1.5}
+  .aq-ft-btn{margin-left:auto}
 }
 /* 360px대 작은 폰: Why AQbar 카드 여백을 줄여 설명이 한 줄에 들어가게 */
 @media (max-width:374.98px){.aq-why-card{padding:28px 20px!important}}
@@ -480,7 +481,7 @@ button:disabled{opacity:.7;cursor:default!important}
         <span style="font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.04em;line-height:1.3">비용 부담 없이, <br class="aq-br-mo"><span style="background-image:linear-gradient(90deg,#c084fc,#818cf8 50%,#2dd4bf);background-repeat:no-repeat;background-size:100% 5px;background-position:0 100%;padding-bottom:2px">테스트 계정</span>을 신청하세요</span>
         <span style="font-size:16px;line-height:1.6;color:rgba(255,255,255,.72)">우리 조직과 직무에 맞는 평가 방식인지 직접 확인해 보세요.</span>
       </div>
-      <a href="#contact" class="hv-cta" style="position:relative;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-size:18px;font-weight:700;color:#fff;background:#4f39f6;padding:18px 32px;border-radius:12px;box-shadow:0 18px 50px rgba(79,57,246,.6)">Free Trial 신청하기<span style="font-size:19px;line-height:1">→</span></a>
+      <a href="#contact" class="hv-cta aq-ft-btn" style="position:relative;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-size:18px;font-weight:700;color:#fff;background:#4f39f6;padding:18px 32px;border-radius:12px;box-shadow:0 18px 50px rgba(79,57,246,.6)">Free Trial 신청하기<span style="font-size:19px;line-height:1">→</span></a>
     </div>
   </div>
 </section>
@@ -643,6 +644,21 @@ button:disabled{opacity:.7;cursor:default!important}
     topBtn.blur();
   });
 
+  // ── [PC] 메뉴·버튼으로 섹션 이동 시 헤드라인 위 빈 공간을 섹션 위쪽 여백의 60%로 ──
+  // (직접 스크롤할 때의 화면과 모바일 동작은 그대로)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || isNarrow() || e.defaultPrevented) return;
+    var id = a.getAttribute('href').slice(1);
+    var el = id && document.getElementById(id);
+    if (!el || id === 'film' || id === 'top') return;
+    e.preventDefault();
+    var padTop = parseFloat(getComputedStyle(el).paddingTop) || 0;
+    var y = el.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + padTop * 0.4;
+    window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+  });
+
   // ── 모바일 햄버거 메뉴 ──
   var burger = document.getElementById('aq-burger');
   var menu = document.getElementById('aq-menu');
@@ -654,6 +670,13 @@ button:disabled{opacity:.7;cursor:default!important}
   burger.addEventListener('click', function () { setMenu(menu.hidden); });
   menu.querySelectorAll('[data-close-menu]').forEach(function (a) {
     a.addEventListener('click', function () { setMenu(false); });
+  });
+  // 메뉴가 열린 상태에서 메뉴 바깥을 누르거나 Esc 키를 누르면 닫기
+  document.addEventListener('click', function (e) {
+    if (!menu.hidden && !nav.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.hidden) { setMenu(false); burger.focus(); }
   });
 
   // ── 기존 서류 일러스트: 좁은 화면에서 축소 ──
@@ -744,10 +767,19 @@ button:disabled{opacity:.7;cursor:default!important}
       }, { threshold: 0.6 }).observe(v);
     } else { load(); }
     document.querySelectorAll('[data-play-film]').forEach(function (a) {
-      a.addEventListener('click', function () {
+      a.addEventListener('click', function (ev) {
         load();
         try { v.currentTime = 0; } catch (e) {}
         play();
+        // [모바일] 모니터 그림(받침대 포함)을 메뉴 바 아래 화면 한가운데에 오도록
+        if (isNarrow()) {
+          ev.preventDefault();
+          var device = v.closest('section').firstElementChild;
+          var r = device.getBoundingClientRect(), navH = nav.offsetHeight;
+          var y = r.top + window.scrollY + r.height / 2 - (navH + (window.innerHeight - navH) / 2);
+          window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
+          if (history.replaceState) history.replaceState(null, '', '#film');
+        }
       });
     });
   })();
