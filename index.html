@@ -83,6 +83,8 @@ a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
   .aq-why-desc{display:block;margin-top:2px;font-size:14px;line-height:1.5}
   .aq-ft-btn{margin-left:auto}
   .aq-std-row > span{font-size:27px!important}
+  .aq-faq > button{font-size:17px!important}
+  .aq-faq > p{font-size:14px!important}
   .aq-picks{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}
   .aq-pick{width:100%;text-align:center}
 }
@@ -121,8 +123,7 @@ html:not(.js) [data-qlist]{--q-line:100%}
 /* 문의 폼 관심 항목 */
 .aq-pick{border:1.5px solid #e5e7eb!important;background:#fff!important;color:#4b5563!important}
 .aq-pick[aria-pressed="true"]{border-color:#4f46e5!important;background:#eef2ff!important;color:#4338ca!important}
-.aq-pick[data-ft]{border-color:#4f39f6!important;color:#4f39f6!important}
-.aq-pick[data-ft][aria-pressed="true"]{background:#4f39f6!important;color:#fff!important}
+.aq-pick[data-ft][aria-pressed="true"]{border-color:#4f39f6!important;background:#4f39f6!important;color:#fff!important}
 button:disabled{opacity:.7;cursor:default!important}
 
 /* 맨 위로 버튼 */
@@ -793,12 +794,12 @@ button:disabled{opacity:.7;cursor:default!important}
         load();
         try { v.currentTime = 0; } catch (e) {}
         play();
-        // [모바일] 모니터 그림(받침대 포함)을 메뉴 바 아래 화면 한가운데에 오도록
-        if (isNarrow()) {
+        // [모바일] '평가 과정' 메뉴와 같은 위치(Beyond the Answer 섹션, 위쪽 여백 60%)로 이동
+        var proc = document.getElementById('process');
+        if (isNarrow() && proc) {
           ev.preventDefault();
-          var device = v.closest('section').firstElementChild;
-          var r = device.getBoundingClientRect(), navH = nav.offsetHeight;
-          var y = r.top + window.scrollY + r.height / 2 - (navH + (window.innerHeight - navH) / 2);
+          var padTop = parseFloat(getComputedStyle(proc).paddingTop) || 0;
+          var y = proc.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + padTop * 0.4;
           window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
           if (history.replaceState) history.replaceState(null, '', '#film');
         }
