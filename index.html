@@ -115,6 +115,13 @@ html:not(.js) [data-qlist]{--q-line:100%}
 .aq-pick[data-ft][aria-pressed="true"]{background:#4f39f6!important;color:#fff!important}
 button:disabled{opacity:.7;cursor:default!important}
 
+/* 맨 위로 버튼 */
+.aq-top{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:30;width:48px;height:48px;border-radius:50%;border:1px solid #e5e7eb;background:#fff;color:#0b0b0f;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;box-shadow:0 8px 24px rgba(30,27,75,.14);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s ease}
+.aq-top.is-on{opacity:1;visibility:visible;transform:none}
+.aq-top:hover{background:#f5f5f7}
+.aq-top:focus-visible{outline:2px solid #4f46e5;outline-offset:3px}
+@media (max-width:759.98px){.aq-top{right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:44px;height:44px}}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -603,6 +610,7 @@ button:disabled{opacity:.7;cursor:default!important}
 </footer>
 </div>
 
+<button type="button" id="aq-top" class="aq-top" aria-label="맨 위로 이동"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></button>
 <script src="contact-config.js"></script>
 <script src="contact-form.js"></script>
 <script>
@@ -621,6 +629,16 @@ button:disabled{opacity:.7;cursor:default!important}
   }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+
+  // ── 맨 위로 버튼: 첫 화면을 지나면 보이고, 누르면 맨 위로 ──
+  var topBtn = document.getElementById('aq-top');
+  function updateTopBtn() { topBtn.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', updateTopBtn, { passive: true });
+  updateTopBtn();
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    topBtn.blur();
+  });
 
   // ── 모바일 햄버거 메뉴 ──
   var burger = document.getElementById('aq-burger');
