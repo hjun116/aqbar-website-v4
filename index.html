@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="fonts/paperlogy/paperlogy.css">
 <script>document.documentElement.classList.add('js');</script>
 <style>
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
 body{margin:0;background:#fafafa;color:#0b0b0f;font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box;word-break:keep-all}
 a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
@@ -138,7 +138,7 @@ button:disabled{opacity:.7;cursor:default!important}
       <img src="assets/aqbar-logo.svg" alt="" style="position:absolute;inset:0;height:24px;display:block;opacity:var(--nav-light-logo);transition:opacity .35s ease">
     </a>
     <div class="aq-navlinks" style="display:var(--m-navlinks);gap:28px;flex:1;flex-wrap:wrap;overflow:hidden;height:20px;font-size:15px;font-weight:500">
-      <a href="#film" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">평가 과정</a>
+      <a href="#process" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">평가 과정</a>
       <a href="#report" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">AQbar 리포트</a>
       <a href="#trust" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">도입</a>
       <a href="#standard" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">One Standard</a>
@@ -148,7 +148,7 @@ button:disabled{opacity:.7;cursor:default!important}
     <button type="button" id="aq-burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aq-menu" style="display:var(--m-burger);flex:none;width:44px;height:44px;margin-left:-20px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:0"><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i></button>
   </div>
   <div id="aq-menu" hidden style="display:flex;flex-direction:column;padding:8px 20px 16px;background:#fff;border-top:1px solid #f0f0f4;box-shadow:0 16px 30px rgba(30,27,75,.12)">
-      <a href="#film" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">평가 과정</a>
+      <a href="#process" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">평가 과정</a>
       <a href="#report" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">AQbar 리포트</a>
       <a href="#trust" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">도입</a>
       <a href="#standard" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">One Standard</a>
@@ -197,7 +197,7 @@ button:disabled{opacity:.7;cursor:default!important}
   </div>
 </header>
 
-<section style="background:#fafafa;padding:var(--m-beyond)">
+<section id="process" style="background:#fafafa;padding:var(--m-beyond)">
   <div style="max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
     <div class="aq-beyond-title" style="font-family:'Paperlogy','Pretendard Variable',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:800;letter-spacing:-.045em;line-height:1;margin-bottom:16px">Beyond the <span style="background:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);-webkit-background-clip:text;background-clip:text;color:transparent">Answer</span></div>
     <div data-beyond style="font-size:clamp(22px,2.6vw,32px);font-weight:500;letter-spacing:-.03em;color:#9ca3af"><span style="position:relative;display:inline-block">결과물<i style="position:absolute;left:-2px;top:54%;height:3px;width:var(--strike-w,0px);background:#9ca3af;border-radius:2px;display:block;transition:width 1s cubic-bezier(.6,0,.2,1) .2s"></i></span>이 아니라, <br class="aq-br-mo"><b style="color:#0b0b0f;font-weight:800;background-image:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);background-repeat:no-repeat;background-size:var(--ul-size,0% 5px);background-position:0 100%;transition:background-size 1.2s cubic-bezier(.6,0,.2,1) 1.1s">일하는 과정</b><span style="color:#0b0b0f">을 평가합니다</span></div>
@@ -624,7 +624,7 @@ button:disabled{opacity:.7;cursor:default!important}
   var nav = document.getElementById('aq-nav');
   var hero = document.getElementById('top');
   function updateNav() {
-    var past = hero ? hero.getBoundingClientRect().bottom <= 68 : window.scrollY > 400;
+    var past = hero ? hero.getBoundingClientRect().bottom <= nav.getBoundingClientRect().bottom + 1 : window.scrollY > 400;
     nav.classList.toggle('is-light', past);
   }
   window.addEventListener('scroll', updateNav, { passive: true });
