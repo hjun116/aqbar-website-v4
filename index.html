@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YD8F18L7QG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YD8F18L7QG');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#08080f">
+<title>AQbar(에이큐바) — AI 협업 기반 직무 역량 평가</title>
+<meta name="description" content="AQbar는 지원자가 AI와 함께 실무 과제를 수행하는 과정을 분석해 문제해결 역량을 7개 지표로 점수화합니다. 채용 평가부터 조직 진단, 역량 트래킹까지 하나의 기준으로 연결합니다.">
+<link rel="canonical" href="https://aqbar.ai/">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="AQbar">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aqbar.ai/">
+<meta property="og:title" content="AQbar(에이큐바) — AI 협업 기반 직무 역량 평가">
+<meta property="og:description" content="결과물이 아니라, 일하는 과정을 평가합니다. 채용 평가부터 조직 진단까지 하나의 기준으로 연결합니다.">
+<meta property="og:image" content="https://aqbar.ai/assets/og-main.png?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AQbar(에이큐바) — AI 협업 기반 직무 역량 평가">
+<meta name="twitter:description" content="결과물이 아니라, 일하는 과정을 평가합니다. 채용 평가부터 조직 진단까지 하나의 기준으로 연결합니다.">
+<meta name="twitter:image" content="https://aqbar.ai/assets/og-main.png?v=1">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/paperlogy/Paperlogy-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/pretendard-variable/pretendard-variable.css">
+<link rel="stylesheet" href="/fonts/paperlogy/paperlogy.css">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#fafafa;color:#0b0b0f;font-family:'Pretendard Variable',Pretendard,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box;word-break:keep-all}
+a{color:#4f46e5;text-decoration:none}a:hover{color:#4f39f6}
+[hidden]{display:none!important}
+@keyframes aqPop{0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(168,85,247,0))}40%{transform:scale(1.07);filter:drop-shadow(0 0 30px rgba(168,85,247,.9))}100%{transform:scale(1);filter:drop-shadow(0 0 12px rgba(168,85,247,.35))}}
+@keyframes aqShine{from{background-position:0% 50%}to{background-position:100% 50%}}
+@keyframes aqLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes aqFlow{from{left:-7px}to{left:calc(100% - 7px)}}
+@keyframes aqFlowV{from{top:-7px}to{top:calc(100% - 7px)}}
+
+/* 화면 폭별 값 (760px 미만 = 모바일) */
+:root{
+  --m-navlinks:flex;--m-burger:none;--m-cta-ml:0;--m-chip:inline-block;
+  --m-sec:120px 24px;--m-film:32px 24px 120px;--m-beyond:140px 24px 24px;--m-hero:166px 24px 0;
+  --m-rep-pad:40px 36px;--m-form-cols:96px minmax(0,1fr);--m-form-gap:16px;
+  --m-std-cols:minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr);
+}
+@media (max-width:759.98px){
+  :root{
+    --m-navlinks:none;--m-burger:flex;--m-cta-ml:auto;--m-chip:none;
+    --m-sec:80px 20px;--m-film:24px 16px 80px;--m-beyond:88px 20px 20px;--m-hero:120px 20px 0;
+    --m-rep-pad:28px 20px;--m-form-cols:minmax(0,1fr);--m-form-gap:8px;
+    --m-std-cols:minmax(0,1fr);
+  }
+  .aq-link-h{display:none!important}
+}
+@media (min-width:760px){.aq-link-v{display:none!important}}
+
+/* 상단 메뉴: 히어로 위에서는 투명(다크), 지나가면 라이트 */
+.aq-nav{--nav-bg:rgba(8,8,15,0);--nav-bd:rgba(255,255,255,0);--nav-sh:none;--nav-ink:rgba(255,255,255,.72);--nav-ink-hi:#fff;--nav-dark-logo:1;--nav-light-logo:0}
+.aq-nav.is-light{--nav-bg:rgba(255,255,255,.82);--nav-bd:rgba(15,15,30,.08);--nav-sh:0 6px 24px rgba(30,27,75,.06);--nav-ink:#4b5563;--nav-ink-hi:#0b0b0f;--nav-dark-logo:0;--nav-light-logo:1}
+
+/* 마우스를 올렸을 때 */
+.hv-navlink:hover{color:var(--nav-ink-hi)!important}
+.hv-cta:hover{background:#3f2bd9!important;color:#fff!important}
+.hv-ghost:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
+
+/* 히어로 타이핑 */
+.aq-key{position:relative;display:inline-block;background-image:linear-gradient(90deg,#c084fc,#818cf8 25%,#2dd4bf 50%,#818cf8 75%,#c084fc);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.aq-key.is-done{animation:aqPop 1.32s cubic-bezier(.2,.8,.2,1) both,aqShine 3.2s ease-in-out 1.32s infinite alternate}
+.aq-key-line{position:absolute;left:0;right:0;bottom:-.02em;height:.07em;border-radius:4px;background:linear-gradient(90deg,#c084fc,#818cf8 50%,#2dd4bf);transform-origin:left;animation:aqLine 1.08s cubic-bezier(.2,.8,.2,1) .3s both;display:block}
+.aq-caret{position:relative}
+.aq-caret i{position:absolute;left:0;top:.1em;bottom:.06em;width:4px;background:#a855f7;display:block}
+
+/* Beyond the Answer: 화면에 보이면 취소선·밑줄 */
+[data-beyond].is-on,html:not(.js) [data-beyond]{--strike-w:calc(100% + 4px);--ul-size:100% 5px}
+
+/* 맞춤 면접 질문: 스크롤하면 하나씩 등장 */
+.js .aq-q{opacity:0;transform:translateY(-14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .aq-q.is-on{opacity:1;transform:translateY(0)}
+html:not(.js) [data-qlist]{--q-line:100%}
+
+/* FAQ 탭 */
+.aq-tab{border:1.5px solid #e5e7eb!important;background:#fff!important;color:#4b5563!important}
+.aq-tab[aria-pressed="true"]{border-color:#0b0b0f!important;background:#0b0b0f!important;color:#fff!important}
+
+/* 문의 폼 관심 항목 */
+.aq-pick{border:1.5px solid #e5e7eb!important;background:#fff!important;color:#4b5563!important}
+.aq-pick[aria-pressed="true"]{border-color:#4f46e5!important;background:#eef2ff!important;color:#4338ca!important}
+.aq-pick[data-ft]{border-color:#4f39f6!important;color:#4f39f6!important}
+.aq-pick[data-ft][aria-pressed="true"]{background:#4f39f6!important;color:#fff!important}
+button:disabled{opacity:.7;cursor:default!important}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;overflow-x:clip">
+
+<nav id="aq-nav" class="aq-nav" style="position:sticky;top:0;z-index:20;background:var(--nav-bg);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--nav-bd);box-shadow:var(--nav-sh);transition:background .35s ease,border-color .35s ease,box-shadow .35s ease">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;gap:32px">
+    <a href="#top" aria-label="AQbar 홈" style="display:flex;position:relative;width:99px;height:24px">
+      <img src="/assets/aqbar-logo-white.svg" alt="AQbar" style="position:absolute;inset:0;height:24px;display:block;opacity:var(--nav-dark-logo);transition:opacity .35s ease">
+      <img src="/assets/aqbar-logo.svg" alt="" style="position:absolute;inset:0;height:24px;display:block;opacity:var(--nav-light-logo);transition:opacity .35s ease">
+    </a>
+    <div class="aq-navlinks" style="display:var(--m-navlinks);gap:28px;flex:1;flex-wrap:wrap;overflow:hidden;height:20px;font-size:15px;font-weight:500">
+      <a href="#film" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">평가 과정</a>
+      <a href="#report" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">AQbar 리포트</a>
+      <a href="#trust" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">도입</a>
+      <a href="#standard" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">One Standard</a>
+      <a href="#faq" class="hv-navlink" style="color:var(--nav-ink);transition:color .35s ease">FAQ</a>
+    </div>
+    <a href="#contact" class="hv-cta" style="flex:none;margin-left:var(--m-cta-ml);background:#4f39f6;color:#fff;font-size:15px;font-weight:700;padding:10px 20px;border-radius:10px">문의하기</a>
+    <button type="button" id="aq-burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="aq-menu" style="display:var(--m-burger);flex:none;width:44px;height:44px;margin-left:-20px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:0"><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i><i style="display:block;width:20px;height:2px;border-radius:1px;background:var(--nav-ink-hi)"></i></button>
+  </div>
+  <div id="aq-menu" hidden style="display:flex;flex-direction:column;padding:8px 20px 16px;background:#fff;border-top:1px solid #f0f0f4;box-shadow:0 16px 30px rgba(30,27,75,.12)">
+      <a href="#film" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">평가 과정</a>
+      <a href="#report" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">AQbar 리포트</a>
+      <a href="#trust" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">도입</a>
+      <a href="#standard" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid #f3f4f6">One Standard</a>
+      <a href="#faq" data-close-menu style="color:#0b0b0f;font-size:17px;font-weight:600;padding:14px 4px">FAQ</a>
+    </div>
+</nav>
+
+<header id="top" style="position:relative;margin-top:-70px;background:#08080f;color:#fff;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 900px 520px at 22% 108%,rgba(217,70,239,.55) 0%,rgba(124,58,237,.25) 40%,rgba(8,8,15,0) 75%),radial-gradient(ellipse 700px 460px at 92% 100%,rgba(20,184,166,.35) 0%,rgba(8,8,15,0) 70%)"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:var(--m-hero);display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px">
+    <span style="display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.16);padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.04);white-space:nowrap"><img src="/assets/aqbar-symbol.svg" alt="" style="width:18px;height:18px;display:block">AI 협업 기반 직무 역량 평가 솔루션</span>
+    <h1 id="aq-hero-title" aria-label="AI가 답을 다 써준다면, 결과물만으로 진짜 역량을 알 수 있을까요?" style="margin:0;font-family:'Paperlogy','Pretendard Variable',sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,84px);line-height:1.14;letter-spacing:-.035em;max-width:1000px;text-wrap:balance"><span data-seg="a" style="color:rgba(255,255,255,.55);font-weight:600">AI가 답을 다 써준다면,</span><br><span data-seg="b">결과물만으로 </span><span data-seg="k" class="aq-key">진짜 역량</span><span data-seg="b">을</span><br><span data-seg="b">알 수 있을까요?</span></h1>
+    <p style="margin:12px 0;font-size:clamp(17px,1.6vw,20px);line-height:1.7;color:rgba(255,255,255,.76);max-width:960px;text-wrap:pretty">지원자가 AI와 함께 실무 과제를 수행하는 과정을 분석해, <b style="color:#fff">문제해결 역량</b>을 7개 지표로 점수화합니다.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="#contact" class="hv-cta" style="background:#4f39f6;color:#fff;font-size:17px;font-weight:700;padding:16px 30px;border-radius:12px;white-space:nowrap;box-shadow:0 20px 50px rgba(79,57,246,.45)">도입 문의하기</a>
+      <a href="#film" data-play-film class="hv-ghost" style="color:#fff;font-size:17px;font-weight:600;padding:16px 26px;border-radius:12px;white-space:nowrap;border:1px solid rgba(255,255,255,.2)">서비스 영상 보기</a>
+    </div>
+
+    <div style="width:100%;max-width:1080px;margin-top:40px;background:#fff;color:#0b0b0f;border-radius:20px 20px 0 0;box-shadow:0 -10px 80px rgba(109,76,255,.35),0 0 0 1px rgba(255,255,255,.08);overflow:hidden;text-align:left">
+      <div style="height:52px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:10px;padding:0 20px;font-size:13px;color:#6b7280;flex-wrap:nowrap;overflow:hidden">
+        <img src="/assets/aqbar-logo.svg" alt="AQbar" style="height:18px;display:block;margin-right:8px">
+        <span style="display:var(--m-chip);background:#f3f4f6;padding:5px 10px;border-radius:6px;white-space:nowrap">지원 회사: <b style="color:#111">에이큐바</b></span>
+        <span style="display:var(--m-chip);background:#f3f4f6;padding:5px 10px;border-radius:6px;white-space:nowrap">지원 직무: <b style="color:#111">브랜드 마케팅 기획</b></span>
+        <b style="margin-left:auto;border:1px solid #e5e7eb;padding:4px 10px;border-radius:6px;color:#0b0b0f;font-variant-numeric:tabular-nums">42:18</b>
+        <span style="background:#4f39f6;color:#fff;font-weight:700;padding:6px 14px;border-radius:8px;white-space:nowrap">제출하기</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));background:#f7f7f8;gap:14px;padding:16px">
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:12px;font-weight:700;color:#4f46e5;letter-spacing:.04em">TASK</div>
+          <div style="font-size:18px;font-weight:750;letter-spacing:-.02em;line-height:1.4">3분기 브랜드 마케팅 예산 30억, 어떻게 배분하시겠습니까?</div>
+          <div style="font-size:14px;line-height:1.65;color:#4b5563">표 3. 채널별 성과 — 앱 내 퍼포먼스 ROAS <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">9.8</b> · 신규 고객 비중 <b style="color:#0b0b0f;background:rgba(99,102,241,.16);padding:0 3px;border-radius:3px">72%</b></div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px"><i style="display:block;height:10px;width:92%;background:#f3f4f6;border-radius:5px"></i><i style="display:block;height:10px;width:78%;background:#f3f4f6;border-radius:5px"></i><i style="display:block;height:10px;width:85%;background:#f3f4f6;border-radius:5px"></i></div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:6px;background:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);display:block"></span><b style="font-size:14px;color:#374151">AI 어시스턴트</b></div>
+          <div style="font-size:14px;line-height:1.6;background:#f3f4f6;border-radius:12px 12px 12px 4px;padding:12px 14px;color:#374151">ROAS가 가장 높은 앱 내 채널에 30억 전액을 배정하는 것이 효율적입니다.</div>
+          <div style="font-size:14px;line-height:1.6;background:#eef2ff;border-radius:12px 12px 4px 12px;padding:12px 14px;color:#1f2937;align-self:flex-end;max-width:92%">잠깐, 72%가 신규 고객이면 <b style="color:#4338ca">재구매 데이터는 빠져 있는 거죠?</b> 그 조건을 먼저 확인해 주세요.</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e7e7ee;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 14px 34px -8px rgba(30,27,75,.12)">
+          <div style="display:flex;align-items:center;gap:8px"><img src="/assets/aqbar-symbol.svg" alt="" style="width:22px;height:22px;display:block"><b style="font-size:14px">AQbar 분석</b><span style="margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#9ca3af">TURN 07</span></div>
+          <span style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#6d28d9;background:linear-gradient(180deg,#fff,#f5f3ff);border:1.5px solid #a78bfa;padding:6px 14px 6px 10px;border-radius:999px"><i style="width:8px;height:8px;border-radius:50%;background:#6d28d9;display:block"></i>반박 · 전제 확인</span>
+          <div style="font-size:16px;line-height:1.5;font-weight:650;letter-spacing:-.02em">AI의 제안을 그대로 받지 않고, 누락된 조건을 먼저 짚었습니다.</div>
+          <div style="display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid #f0f0f4"><span style="font-size:13px;font-weight:600;color:#6b7280">역량 신호</span><span style="font-size:13px;font-weight:700;color:#6d28d9;background:#f5f3ff;border-radius:6px;padding:3px 8px">전제 인식 및 재정의</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section style="background:#fafafa;padding:var(--m-beyond)">
+  <div style="max-width:1000px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+    <div style="font-family:'Paperlogy','Pretendard Variable',sans-serif;font-size:clamp(40px,6vw,80px);font-weight:800;letter-spacing:-.045em;line-height:1;margin-bottom:16px">Beyond the <span style="background:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);-webkit-background-clip:text;background-clip:text;color:transparent">Answer</span></div>
+    <div data-beyond style="font-size:clamp(22px,2.6vw,32px);font-weight:500;letter-spacing:-.03em;color:#9ca3af"><span style="position:relative;display:inline-block">결과물<i style="position:absolute;left:-2px;top:54%;height:3px;width:var(--strike-w,0px);background:#9ca3af;border-radius:2px;display:block;transition:width 1s cubic-bezier(.6,0,.2,1) .2s"></i></span>이 아니라, <b style="color:#0b0b0f;font-weight:800;background-image:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);background-repeat:no-repeat;background-size:var(--ul-size,0% 5px);background-position:0 100%;transition:background-size 1.2s cubic-bezier(.6,0,.2,1) 1.1s">일하는 과정</b><span style="color:#0b0b0f">을 평가합니다.</span></div>
+  </div>
+</section>
+
+<section id="film" style="background:#fafafa;padding:var(--m-film)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;align-items:center;width:100%">
+    <div style="position:relative;z-index:1;width:100%;max-width:1040px;display:flex;flex-direction:column;border-radius:clamp(12px,1.8vw,22px);overflow:hidden;background:linear-gradient(180deg,#f4f4f6 0%,#dcdce1 100%);box-shadow:0 40px 90px rgba(30,27,75,.22),0 0 0 1px rgba(15,15,30,.10),inset 0 1px 0 rgba(255,255,255,.9)">
+      <div style="background:#0b0b0f;padding:clamp(6px,1.1vw,14px);margin:clamp(2px,.3vw,4px);border-radius:clamp(10px,1.5vw,19px)">
+        <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#000">
+          <video data-film muted playsinline loop preload="none" poster="/media/film-poster.jpg" aria-label="AQbar 서비스 영상" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+        </div>
+      </div>
+    </div>
+    <div style="width:clamp(70px,13%,150px);height:clamp(40px,7vw,96px);margin-top:-2px;background:linear-gradient(90deg,#c4c4cb 0%,#ececf0 22%,#dadade 60%,#b8b8c0 100%);clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)"></div>
+    <div style="width:clamp(110px,18%,210px);height:clamp(5px,.6vw,8px);background:linear-gradient(180deg,#e4e4e9,#b9b9c1);border-radius:3px 3px 6px 6px;box-shadow:0 12px 26px rgba(30,27,75,.20)"></div>
+    </div>
+  </div>
+</section>
+
+<section id="report" style="position:relative;background:#fff;padding:var(--m-sec);border-top:1px solid #ececf2">
+  <div style="position:absolute;inset:0;background:radial-gradient(40% 50% at 12% 40%,rgba(168,85,247,.14) 0%,transparent 70%),radial-gradient(40% 50% at 88% 70%,rgba(20,184,166,.14) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-wrap:wrap;gap:24px 48px;align-items:flex-end;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:#4f46e5">REPORT</span>
+        <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">사고 과정을 정량화하고<br>면접 검증으로 이어갑니다</h2>
+        <p style="margin:0;font-size:17px;line-height:1.75;color:#4b5563">AI와 함께 실무 과제를 수행하는 과정을 분석해 문제해결 역량을 평가합니다.</p>
+      </div>
+      <a href="#contact" class="hv-cta" style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:17px;font-weight:700;color:#fff;background:#4f39f6;padding:16px 28px;border-radius:12px;box-shadow:0 18px 40px rgba(79,57,246,.35)">샘플 리포트 요청하기<span style="font-size:18px;line-height:1">→</span></a>
+    </div>
+    <div style="background:#fff;border:1px solid #e7e7ee;border-radius:28px;box-shadow:0 30px 70px rgba(30,27,75,.14);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));overflow:hidden">
+      <div style="padding:var(--m-rep-pad);display:flex;flex-direction:column;gap:36px;border-right:1px solid #f0f0f4">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:center;gap:10px"><span style="font-size:13px;font-weight:700;letter-spacing:.04em;color:#fff;background:#0b0b0f;border-radius:999px;padding:5px 12px;white-space:nowrap">평가 리포트</span><i style="width:1px;height:14px;background:#e5e7eb;display:block"></i><span style="font-size:14px;font-weight:600;color:#6b7280">AQbar 점수</span></div>
+          <div style="display:flex;align-items:flex-end;gap:10px"><b style="font-size:72px;font-weight:800;letter-spacing:-.05em;line-height:.86;font-variant-numeric:tabular-nums">53</b><span style="font-size:20px;font-weight:500;color:#9ca3af;padding-bottom:2px">/ 100</span><span style="margin-bottom:3px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#4338ca;background:#eef2ff;border:1px solid #c7d2fe;border-radius:999px;padding:3px 10px"><i style="width:6px;height:6px;border-radius:50%;background:#4f46e5;display:block"></i>양호</span></div>
+          <div style="position:relative;width:320px;max-width:100%;height:6px;margin-top:4px;border-radius:3px;background:#ececf2"><i style="position:absolute;left:0;top:0;bottom:0;width:53%;border-radius:3px;background:linear-gradient(90deg,#a855f7,#4f46e5 50%,#14b8a6);display:block"></i></div>
+        </div>
+        
+      </div>
+        <svg viewBox="-34 0 408 320" style="width:100%;max-width:560px;height:auto;display:block;margin:12px auto 0;overflow:visible"><polygon points="170,45 263.8,90.2 287,191.7 222.1,273.1 117.9,273.1 53,191.7 76.2,90.2" fill="none" stroke="#e5e7eb" stroke-width="1"></polygon><polygon points="170,75 240.4,108.9 257.7,185 209,246.1 131,246.1 82.3,185 99.6,108.9" fill="none" stroke="#e5e7eb" stroke-width="1"></polygon><polygon points="170,105 216.9,127.6 228.5,178.4 196,219.1 144,219.1 111.5,178.4 123.1,127.6" fill="none" stroke="#e5e7eb" stroke-width="1"></polygon><polygon points="170,135 193.5,146.3 199.2,171.7 183,192 157,192 140.8,171.7 146.5,146.3" fill="none" stroke="#e5e7eb" stroke-width="1"></polygon><line x1="170" y1="165" x2="170" y2="45" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="263.8" y2="90.2" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="287" y2="191.7" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="222.1" y2="273.1" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="117.9" y2="273.1" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="53" y2="191.7" stroke="#e5e7eb"></line><line x1="170" y1="165" x2="76.2" y2="90.2" stroke="#e5e7eb"></line><polygon points="170,107.4 228.2,118.6 251.9,183.7 189.8,206.1 142.9,221.2 105.7,179.7 128.7,132.1" fill="#e2e8f0" fill-opacity=".55" stroke="#b8c0cc" stroke-width="1.5" stroke-dasharray="4 4" stroke-linejoin="round"></polygon><polygon points="170,135 212.2,131.3 228.5,178.4 198.6,224.5 131,246.1 70.6,187.7 137.2,138.8" fill="#334155" fill-opacity=".08"></polygon><defs><linearGradient id="eg0" gradientUnits="userSpaceOnUse" x1="170" y1="135" x2="212.2" y2="131.3"><stop offset="0" stop-color="#e11d48"></stop><stop offset="1" stop-color="#e11d48"></stop></linearGradient><linearGradient id="eg1" gradientUnits="userSpaceOnUse" x1="212.2" y1="131.3" x2="228.5" y2="178.4"><stop offset="0" stop-color="#e11d48"></stop><stop offset="1" stop-color="#d97706"></stop></linearGradient><linearGradient id="eg2" gradientUnits="userSpaceOnUse" x1="228.5" y1="178.4" x2="198.6" y2="224.5"><stop offset="0" stop-color="#d97706"></stop><stop offset="1" stop-color="#d97706"></stop></linearGradient><linearGradient id="eg3" gradientUnits="userSpaceOnUse" x1="198.6" y1="224.5" x2="131" y2="246.1"><stop offset="0" stop-color="#d97706"></stop><stop offset="1" stop-color="#0d9488"></stop></linearGradient><linearGradient id="eg4" gradientUnits="userSpaceOnUse" x1="131" y1="246.1" x2="70.6" y2="187.7"><stop offset="0" stop-color="#0d9488"></stop><stop offset="1" stop-color="#0d9488"></stop></linearGradient><linearGradient id="eg5" gradientUnits="userSpaceOnUse" x1="70.6" y1="187.7" x2="137.2" y2="138.8"><stop offset="0" stop-color="#0d9488"></stop><stop offset="1" stop-color="#e11d48"></stop></linearGradient><linearGradient id="eg6" gradientUnits="userSpaceOnUse" x1="137.2" y1="138.8" x2="170" y2="135"><stop offset="0" stop-color="#e11d48"></stop><stop offset="1" stop-color="#e11d48"></stop></linearGradient></defs><line x1="170" y1="135" x2="212.2" y2="131.3" stroke="url(#eg0)" stroke-width="2.5" stroke-linecap="round"></line><line x1="212.2" y1="131.3" x2="228.5" y2="178.4" stroke="url(#eg1)" stroke-width="2.5" stroke-linecap="round"></line><line x1="228.5" y1="178.4" x2="198.6" y2="224.5" stroke="url(#eg2)" stroke-width="2.5" stroke-linecap="round"></line><line x1="198.6" y1="224.5" x2="131" y2="246.1" stroke="url(#eg3)" stroke-width="2.5" stroke-linecap="round"></line><line x1="131" y1="246.1" x2="70.6" y2="187.7" stroke="url(#eg4)" stroke-width="2.5" stroke-linecap="round"></line><line x1="70.6" y1="187.7" x2="137.2" y2="138.8" stroke="url(#eg5)" stroke-width="2.5" stroke-linecap="round"></line><line x1="137.2" y1="138.8" x2="170" y2="135" stroke="url(#eg6)" stroke-width="2.5" stroke-linecap="round"></line><circle cx="170" cy="135" r="5" fill="#e11d48"></circle><circle cx="212.2" cy="131.3" r="5" fill="#e11d48"></circle><circle cx="228.5" cy="178.4" r="3.5" fill="#d97706"></circle><circle cx="198.6" cy="224.5" r="3.5" fill="#d97706"></circle><circle cx="131" cy="246.1" r="5" fill="#0d9488"></circle><circle cx="70.6" cy="187.7" r="5" fill="#0d9488"></circle><circle cx="137.2" cy="138.8" r="5" fill="#e11d48"></circle><text x="170" y="17" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">전제 인식·재정의</text><text x="170" y="32" text-anchor="middle" font-size="13" font-weight="800" fill="#e11d48">25</text><text x="282.6" y="71.2" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">문제 구조화</text><text x="282.6" y="86.2" text-anchor="middle" font-size="13" font-weight="800" fill="#e11d48">45</text><text x="310.4" y="193" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">의사결정</text><text x="310.4" y="208" text-anchor="middle" font-size="13" font-weight="800" fill="#d97706">50</text><text x="232.5" y="290.7" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">자기검증</text><text x="232.5" y="305.7" text-anchor="middle" font-size="13" font-weight="800" fill="#d97706">55</text><text x="107.5" y="290.7" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">논증 구조화</text><text x="107.5" y="305.7" text-anchor="middle" font-size="13" font-weight="800" fill="#0d9488">75</text><text x="29.6" y="193" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">실행가능성</text><text x="29.6" y="208" text-anchor="middle" font-size="13" font-weight="800" fill="#0d9488">85</text><text x="57.4" y="71.2" text-anchor="middle" font-size="13" font-weight="600" fill="#374151">통합적 추론</text><text x="57.4" y="86.2" text-anchor="middle" font-size="13" font-weight="800" fill="#e11d48">35</text></svg>
+        <div style="display:flex;justify-content:center;gap:28px;font-size:14px;font-weight:600;color:#6b7280"><span style="display:inline-flex;align-items:center;gap:6px"><i style="width:18px;height:3px;border-radius:2px;background:linear-gradient(90deg,#e11d48,#0d9488);display:block"></i>지원자</span><span style="display:inline-flex;align-items:center;gap:6px"><i style="width:18px;height:0;border-top:2px dashed #b8c0cc;display:block"></i>지원자 평균</span></div>
+      </div>
+      <div style="padding:32px;display:flex;flex-direction:column;gap:24px;background:#fcfcfd">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
+        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#0d9488;display:block"></i><b style="font-size:14px;letter-spacing:.06em">강점</b><span style="margin-left:auto;font-size:12px;color:#9ca3af">근거 턴 표기</span></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
+              <b style="font-size:24px;letter-spacing:-.04em;color:#0d9488;line-height:1">85</b>
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">실행가능성</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 9</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">협의 결과에 따라 예산 폭을 조정하는 조건부 실행안</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
+              <b style="font-size:24px;letter-spacing:-.04em;color:#0d9488;line-height:1">75</b>
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">논증 구조화</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 12</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">AI 안의 한계를 짚고 예산 분할 근거를 제시</span></div>
+            </div>
+        </div>
+        <div style="display:flex;flex-direction:column"><div style="display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #0b0b0f"><i style="width:9px;height:9px;border-radius:50%;background:#e11d48;display:block"></i><b style="font-size:14px;letter-spacing:.06em">약점</b><span style="margin-left:auto;font-size:12px;color:#9ca3af">면접에서 확인</span></div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
+              <b style="font-size:24px;letter-spacing:-.04em;color:#e11d48;line-height:1">45</b>
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">문제 구조화</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 3</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">기존 고객 72%의 재구매와 광고 효과를 구분 안 함</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
+              <b style="font-size:24px;letter-spacing:-.04em;color:#e11d48;line-height:1">35</b>
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">통합적 추론</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 5</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">매장 ROAS 14.2·외국인 44% 신호를 반영 안 함</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f1f1f3">
+              <b style="font-size:24px;letter-spacing:-.04em;color:#e11d48;line-height:1">25</b>
+              <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:14px">전제 인식·재정의</b><span style="font-size:11px;font-weight:600;color:#4b5563;background:#f3f4f6;border-radius:999px;padding:1px 8px">턴 1</span></div><span style="font-size:13px;color:#6b7280;line-height:1.45">보고된 ROAS 9.8을 측정 기준 확인 없이 수용</span></div>
+            </div>
+        </div>
+      </div>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #ececf2;padding-top:16px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:13px;font-weight:700;color:#0b0b0f">맞춤 면접 질문</span><span style="font-size:12px;color:#9ca3af">약점 3개 → 면접 질문 5개</span></div>
+        <div data-qlist style="position:relative;display:flex;flex-direction:column;padding-left:18px">
+          <i style="position:absolute;left:0;top:8px;bottom:8px;width:2px;background:#f1f1f3;border-radius:1px;display:block"></i>
+          <i style="position:absolute;left:0;top:8px;width:2px;height:var(--q-line,0%);background:linear-gradient(180deg,#e11d48,#a855f7);border-radius:1px;display:block;transition:height .6s cubic-bezier(.2,.8,.2,1)"></i>
+          <div class="aq-q" style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:6px;align-items:start;padding:10px 0;border-top:1px solid #f1f1f3;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+              <span style="font-size:14px;font-weight:600;color:#1f2937;font-variant-numeric:tabular-nums">Q1</span>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:5px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#be123c;background:rgba(225,29,72,.07);border-radius:6px;padding:2px 8px"><i style="width:5px;height:5px;border-radius:50%;background:#e11d48;display:block"></i>문제 구조화</span><span style="font-size:15px;line-height:1.5;color:#1f2937;font-weight:600;background:rgba(99,102,241,.1);border-radius:5px;padding:1px 6px;margin-left:-6px;-webkit-box-decoration-break:clone;box-decoration-break:clone">대상의 72%가 기존 구매자라면, 광고의 실제 기여는 얼마인가요?</span></div>
+            </div>
+          <div class="aq-q" style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:6px;align-items:start;padding:10px 0;border-top:1px solid #f1f1f3;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+              <span style="font-size:14px;font-weight:600;color:#1f2937;font-variant-numeric:tabular-nums">Q2</span>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:5px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#be123c;background:rgba(225,29,72,.07);border-radius:6px;padding:2px 8px"><i style="width:5px;height:5px;border-radius:50%;background:#e11d48;display:block"></i>통합적 추론</span><span style="font-size:15px;line-height:1.5;color:#1f2937;font-weight:600;background:rgba(99,102,241,.1);border-radius:5px;padding:1px 6px;margin-left:-6px;-webkit-box-decoration-break:clone;box-decoration-break:clone">매장 ROAS 14.2와 외국인 비중 44%는 왜 배분에서 빠졌나요?</span></div>
+            </div>
+          <div class="aq-q" style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:6px;align-items:start;padding:10px 0;border-top:1px solid #f1f1f3;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+              <span style="font-size:14px;font-weight:600;color:#1f2937;font-variant-numeric:tabular-nums">Q3</span>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:5px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#be123c;background:rgba(225,29,72,.07);border-radius:6px;padding:2px 8px"><i style="width:5px;height:5px;border-radius:50%;background:#e11d48;display:block"></i>전제 인식·재정의</span><span style="font-size:15px;line-height:1.5;color:#1f2937;font-weight:600;background:rgba(99,102,241,.1);border-radius:5px;padding:1px 6px;margin-left:-6px;-webkit-box-decoration-break:clone;box-decoration-break:clone">ROAS 9.8은 보고된 값입니다. 측정 기준은 확인하셨나요?</span></div>
+            </div>
+          <div class="aq-q" style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:6px;align-items:start;padding:10px 0;border-top:1px solid #f1f1f3;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+              <span style="font-size:14px;font-weight:600;color:#1f2937;font-variant-numeric:tabular-nums">Q4</span>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:5px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#be123c;background:rgba(225,29,72,.07);border-radius:6px;padding:2px 8px"><i style="width:5px;height:5px;border-radius:50%;background:#e11d48;display:block"></i>문제 구조화</span><span style="font-size:15px;line-height:1.5;color:#1f2937;font-weight:600;background:rgba(99,102,241,.1);border-radius:5px;padding:1px 6px;margin-left:-6px;-webkit-box-decoration-break:clone;box-decoration-break:clone">이 배분이 옳았는지는 어떤 지표로 검증하시겠어요?</span></div>
+            </div>
+          <div class="aq-q" style="display:grid;grid-template-columns:32px minmax(0,1fr);gap:6px;align-items:start;padding:10px 0;border-top:1px solid #f1f1f3;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+              <span style="font-size:14px;font-weight:600;color:#1f2937;font-variant-numeric:tabular-nums">Q5</span>
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:5px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#be123c;background:rgba(225,29,72,.07);border-radius:6px;padding:2px 8px"><i style="width:5px;height:5px;border-radius:50%;background:#e11d48;display:block"></i>전제 인식·재정의</span><span style="font-size:15px;line-height:1.5;color:#1f2937;font-weight:600;background:rgba(99,102,241,.1);border-radius:5px;padding:1px 6px;margin-left:-6px;-webkit-box-decoration-break:clone;box-decoration-break:clone">보고 수치가 틀렸다면, 30억 배분안의 무엇부터 바꾸시겠어요?</span></div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 56px">
+      <div style="display:flex;gap:10px;align-items:baseline"><b style="font-size:15px;color:#4f46e5;flex:none">01</b><span style="font-size:15px;line-height:1.6;color:#374151"><b style="color:#0b0b0f">7개 지표 레이더</b> - 지원자 평균과 한눈에 비교</span></div>
+      <div style="display:flex;gap:10px;align-items:baseline"><b style="font-size:15px;color:#4f46e5;flex:none">02</b><span style="font-size:15px;line-height:1.6;color:#374151"><b style="color:#0b0b0f">강점 · 약점</b> - 근거가 된 대화 턴까지 표기</span></div>
+      <div style="display:flex;gap:10px;align-items:baseline"><b style="font-size:15px;color:#4f46e5;flex:none">03</b><span style="font-size:15px;line-height:1.6;color:#374151"><b style="color:#0b0b0f">맞춤 면접 질문</b> - 약점을 검증할 질문으로 연결</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:var(--m-sec);border-top:1px solid #f0f0f4">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:860px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:#4f46e5">7 INDICATORS</span>
+      <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">실무에서의 문제해결 역량을<br>7개 지표로 측정합니다</h2>
+      <p style="margin:0;font-size:16px;line-height:1.7;color:#6b7280">모든 지표는 인지과학·교육심리학·역량평가론의 검증된 연구를 바탕으로 설계되었습니다.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#ececf2;border:1px solid #ececf2;border-radius:20px;overflow:hidden">
+      <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">01</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">전제 인식 및 재정의</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">문제에 숨겨진 전제와 누락된 정보를 찾아, 무엇을 풀어야 할지 다시 정의한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><rect x="9" y="2" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="16" y="16" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">02</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">문제 구조화</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">복잡한 문제를 핵심 요소로 나누고, 요소 간 관계를 파악한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M12 3v18"></path><path d="M7 21h10"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">03</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">의사결정</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">여러 선택지를 비교하고, 무엇을 선택할지 결정한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="12" cy="12" r="9"></circle><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">04</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">자기검증</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">자신의 판단과 AI의 답을 비판적으로 검토하고 수정한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">05</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">논증 구조화</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">주장을 근거로 뒷받침하고, 다른 관점에 논리적으로 대응한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">06</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">실행 가능성</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">현실의 제약을 고려해 아이디어를 구체적인 실행으로 전환한다.</span>
+        </div>
+        <div style="background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="9" cy="12" r="5.5"></circle><circle cx="15" cy="12" r="5.5"></circle></svg><span style="font-size:13px;font-weight:600;color:#9ca3af;font-variant-numeric:tabular-nums">07</span></div>
+          <span style="font-size:20px;font-weight:750;letter-spacing:-.03em">통합적 추론</span>
+          <span style="font-size:15px;line-height:1.6;color:#4b5563">흩어진 정보를 연결해 새로운 관점과 결론을 도출한다.</span>
+        </div>
+      <div style="background:#fafafa;padding:26px;display:flex;flex-direction:column;gap:10px;justify-content:center">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.12em;color:#9ca3af">COMING SOON</span>
+        <span style="font-size:17px;font-weight:700;color:#6b7280">Team Fit · Company Fit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:var(--m-sec);border-top:1px solid #f0f0f4">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:#4f46e5">WHY AQBAR</span>
+      <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">평가 방식도 바뀌어야 합니다</h2>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#4b5563">AI가 답을 만들어주는 시대,<br>서류와 면접만으로는 그럴 듯한 ‘결과물’ 뒤에 숨겨진 진짜 ‘사고 과정’을 확인할 수 없습니다.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px">
+      <div style="background:#f7f7f8;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px">
+        <div style="position:relative;height:var(--doc-h,300px);margin-bottom:8px;transform:scale(var(--doc-s,1));transform-origin:center top">
+          <div style="position:absolute;left:50%;top:34px;width:200px;height:170px;margin-left:-196px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(-9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">포트폴리오</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">PDF · 24p</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><i style="display:block;height:34px;background:#f3f4f6;border-radius:5px"></i><i style="display:block;height:34px;background:#f3f4f6;border-radius:5px"></i></div><i style="display:block;height:6px;width:80%;background:#f0f0f3;border-radius:3px"></i>
+          </div>
+          <div style="position:absolute;left:50%;top:34px;width:200px;height:170px;margin-left:-4px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(30,27,75,.07);transform:rotate(9deg);padding:14px 16px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">이력서</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">경력 4년</span></div>
+            <div style="display:flex;gap:8px;align-items:center"><i style="width:26px;height:26px;border-radius:50%;background:#e5e7eb;display:block;flex:none"></i><div style="display:flex;flex-direction:column;gap:5px;flex:1"><i style="display:block;height:6px;width:70%;background:#f0f0f3;border-radius:3px"></i><i style="display:block;height:6px;width:50%;background:#f0f0f3;border-radius:3px"></i></div></div><i style="display:block;height:6px;width:90%;background:#f0f0f3;border-radius:3px"></i><i style="display:block;height:6px;width:76%;background:#f0f0f3;border-radius:3px"></i>
+          </div>
+          <div style="position:absolute;left:50%;top:90px;width:250px;height:180px;margin-left:-125px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 18px 40px rgba(30,27,75,.14);transform:rotate(-1.5deg);padding:14px 18px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;font-weight:800;color:#374151;letter-spacing:-.02em">자기소개서</span><span style="margin-left:auto;font-size:11px;font-weight:600;color:#9ca3af">1,500자</span></div>
+            <span style="font-size:12px;line-height:1.55;color:#6b7280">저는 데이터 기반의 문제 해결 역량과 뛰어난 커뮤니케이션 능력을 바탕으로…</span>
+            <i style="display:block;height:6px;width:88%;background:#f0f0f3;border-radius:3px"></i>
+            <span style="position:absolute;right:14px;bottom:14px;font-size:11.5px;font-weight:700;color:#9ca3af;border:1.5px solid #d1d5db;border-radius:6px;padding:3px 8px;transform:rotate(-6deg);background:#fff">AI 작성 · 완성도 100%</span>
+          </div>
+        </div>
+        <span style="font-size:15px;font-weight:700;color:#9ca3af;min-height:26px;display:flex;align-items:center">기존 서류 · 과제 · 인적성</span>
+        <span style="font-size:26px;font-weight:750;letter-spacing:-.03em;color:#6b7280">결과물만 봅니다</span>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:16px;line-height:1.55;color:#6b7280">
+          <div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#e5e7eb"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"></path></svg><span><b style="color:#4b5563">AI로 완성된 서류</b> - 모두 완벽해 보여 변별이 어렵습니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#e5e7eb"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"></path></svg><span><b style="color:#4b5563">결과 중심 평가</b> - 어떻게 그 답에 도달했는지 알 수 없습니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#e5e7eb"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"></path></svg><span><b style="color:#4b5563">비개발 직군</b> - 기획·마케팅·사업개발은 정량 기준이 없습니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#e5e7eb"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"></path></svg><span><b style="color:#4b5563">면접관마다 다른 점수</b> - 평가 편차가 쌓입니다</span></div>
+        </div>
+      </div>
+      <div style="background:#08080f;color:#fff;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:radial-gradient(60% 70% at 100% 100%,rgba(109,76,255,.45) 0%,transparent 70%)"></div>
+        <div style="position:relative;height:300px;margin-bottom:8px;display:flex;flex-direction:column">
+          <div style="flex:1;display:flex;flex-direction:column;background:#fff;color:#0b0b0f;border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)">
+            <div style="height:36px;flex:none;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:11px;color:#6b7280">
+              <img src="/assets/aqbar-logo.svg" alt="AQbar" style="height:13px;display:block">
+              <span style="background:#f3f4f6;padding:3px 7px;border-radius:5px;white-space:nowrap">브랜드 마케팅 기획</span>
+              <b style="margin-left:auto;font-variant-numeric:tabular-nums;color:#0b0b0f">42:18</b>
+            </div>
+            <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:10px;padding:10px;background:#f7f7f8">
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.04em">AI 대화</span>
+                <span style="font-size:11.5px;line-height:1.45;border-radius:8px 8px 8px 3px;padding:7px 9px;background:#f3f4f6;color:#374151;max-width:92%">ROAS 9.8인 앱 채널에 30억 전액을 배정하세요.</span>
+                <span style="font-size:11.5px;line-height:1.45;border-radius:8px 8px 3px 8px;padding:7px 9px;background:#eef2ff;color:#1f2937;align-self:flex-end;max-width:92%">72%가 신규 고객이면 재구매 데이터는 빠진 거죠?</span>
+                <span style="font-size:11.5px;line-height:1.45;border-radius:8px 8px 3px 8px;padding:7px 9px;background:#eef2ff;color:#1f2937;align-self:flex-end;max-width:92%">그럼 15억은 테스트 후 조건부로 집행할게요.</span>
+              </div>
+              <div style="background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;display:flex;flex-direction:column">
+                <div style="display:flex;align-items:center;gap:6px;padding-bottom:6px"><i style="width:7px;height:7px;border-radius:50%;background:#4f46e5;display:block"></i><b style="font-size:11px">AQbar 분석</b></div>
+                <div style="display:flex;flex-direction:column;gap:6px;padding:9px 0;border-top:1px solid #f0f0f4">
+                  <div style="display:flex;align-items:center;gap:6px"><span style="align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#6d28d9;background:#f5f3ff;border:1px solid #a78bfa;padding:3px 9px;border-radius:999px"><i style="width:6px;height:6px;border-radius:50%;background:#6d28d9;display:block"></i>반박</span><span style="margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#9ca3af">TURN 07</span></div>
+                  <span style="font-size:11.5px;line-height:1.45;font-weight:600;color:#1f2937">AI 제안을 그대로 받지 않고 누락된 조건을 짚음</span>
+                  <span style="align-self:flex-start;font-size:10.5px;font-weight:700;color:#6d28d9;background:#f5f3ff;border-radius:5px;padding:2px 6px">↗ 전제 인식 및 재정의</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;padding:9px 0;border-top:1px solid #f0f0f4">
+                  <div style="display:flex;align-items:center;gap:6px"><span style="align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#0f766e;background:#f0fdfa;border:1px solid #5eead4;padding:3px 9px;border-radius:999px"><i style="width:6px;height:6px;border-radius:50%;background:#0f766e;display:block"></i>구체화</span><span style="margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:10px;color:#9ca3af">TURN 09</span></div>
+                  <span style="font-size:11.5px;line-height:1.45;font-weight:600;color:#1f2937">예산을 나눠 조건부 실행안으로 전환</span>
+                  <span style="align-self:flex-start;font-size:10.5px;font-weight:700;color:#0f766e;background:#f0fdfa;border-radius:5px;padding:2px 6px">↗ 실행 가능성</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="/assets/aqbar-logo-white.svg" alt="AQbar" style="position:relative;height:26px;width:auto;align-self:flex-start;display:block">
+        <span style="position:relative;font-size:26px;font-weight:750;letter-spacing:-.03em">문제해결의 ‘과정’을 봅니다</span>
+        <div style="position:relative;display:flex;flex-direction:column;gap:12px;font-size:16px;line-height:1.55;color:rgba(255,255,255,.85)">
+          <div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#4f39f6"></circle><path d="M5.8 10.3l2.8 2.7 5.6-5.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#fff">AI 대화 로그를 턴 단위로 분석</b> - 질문 · 검증 · 판단의 순간을 포착합니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#4f39f6"></circle><path d="M5.8 10.3l2.8 2.7 5.6-5.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#fff">7개 지표 × 4차원 점수</b> - 존재 · 빈도 · 특성 · 깊이로 정량화합니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#4f39f6"></circle><path d="M5.8 10.3l2.8 2.7 5.6-5.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#fff">비개발 직군 실무 검증</b> - 직무 맥락을 반영한 과제로 봅니다</span></div><div style="display:flex;gap:10px;align-items:flex-start"><svg width="20" height="20" viewBox="0 0 20 20" style="flex:none;display:block;margin-top:2px"><circle cx="10" cy="10" r="10" fill="#4f39f6"></circle><path d="M5.8 10.3l2.8 2.7 5.6-5.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><b style="color:#fff">동일 루브릭, 일관된 근거</b> - 면접 질문 가이드까지 자동 산출합니다</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trust" style="background:#fafafa;padding:var(--m-sec)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2em;color:#4f46e5">IMPACT</span>
+      <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">평가 방식을 바꾸면,<br>채용 의사결정이 달라집니다</h2>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#4b5563">AQbar와 함께 <b style="color:#0b0b0f">더 빠르게, 더 정확하게, 더 공정하게</b> 선별합니다.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 40px;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+      <div style="padding:28px 0 36px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" style="display:block"><path d="M6 20V12"></path><path d="M12 20V4"></path><path d="M18 20v-6"></path></svg><span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#4f46e5">DATA</span></div>
+        <span style="font-size:22px;font-weight:750;letter-spacing:-.03em;line-height:1.4">채용 의사결정 객관성 향상</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#4b5563">
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>루브릭 기반 일관된 채점 근거</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>근거 기반 핵심 역량 파악</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>면접관 간 평가 편차 최소화</span></div>
+        </div>
+      </div>
+      <div style="padding:28px 0 36px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#4f46e5">TIME</span></div>
+        <span style="font-size:22px;font-weight:750;letter-spacing:-.03em;line-height:1.4">면접 운영 효율 극대화</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#4b5563">
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>직무 미적합 지원자 사전 스크리닝</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>후보자당 면접 준비 시간 <b style="color:#0b0b0f">40% 이상 단축</b></span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>핵심 타깃 인재 대상의 면접 집중도 극대화</span></div>
+        </div>
+      </div>
+      <div style="padding:28px 0 36px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block"><rect x="9" y="2" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="16" y="16" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg><span style="font-size:13px;font-weight:700;letter-spacing:.16em;color:#4f46e5">ORGANIZATION</span></div>
+        <span style="font-size:22px;font-weight:750;letter-spacing:-.03em;line-height:1.4">조직 역량 데이터 축적</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#4b5563">
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>사내 역량 벤치마크 구축</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>직무·직급·부서별 역량 패턴 분석</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><i style="width:5px;height:5px;border-radius:50%;background:#a5b4fc;flex:none;display:block;transform:translateY(-3px)"></i><span>채용 평가와 수습·재직 평가를 하나의 기준으로 연결</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:space-between;background:#08080f;color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px) clamp(24px,4vw,48px);box-shadow:0 30px 70px rgba(30,27,75,.22)">
+      <div style="position:absolute;inset:0;background:radial-gradient(50% 120% at 100% 50%,rgba(109,76,255,.55) 0%,transparent 70%),radial-gradient(30% 80% at 0% 100%,rgba(20,184,166,.25) 0%,transparent 70%);pointer-events:none"></div>
+      <div style="position:relative;display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.04em;line-height:1.3">비용 부담 없이, 테스트 계정을 신청하세요</span>
+        <span style="font-size:16px;line-height:1.6;color:rgba(255,255,255,.72)">우리 조직과 직무에 맞는 평가 방식인지 직접 확인해 보세요.</span>
+      </div>
+      <a href="#contact" class="hv-cta" style="position:relative;display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-size:18px;font-weight:700;color:#fff;background:#4f39f6;padding:18px 32px;border-radius:12px;box-shadow:0 18px 50px rgba(79,57,246,.6)">Free Trial 신청하기<span style="font-size:19px;line-height:1">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="standard" style="position:relative;background:#fafafa;padding:var(--m-sec);overflow:hidden;border-top:1px solid #f0f0f4">
+  <div style="position:absolute;inset:0;background:radial-gradient(40% 50% at 15% 30%,rgba(168,85,247,.18) 0%,transparent 70%),radial-gradient(40% 50% at 85% 75%,rgba(20,184,166,.16) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:48px;align-items:center;text-align:center">
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-family:'Paperlogy','Pretendard Variable',sans-serif;font-size:clamp(40px,5.6vw,72px);font-weight:800;letter-spacing:-.045em;line-height:1">One Standard.</div>
+      <p style="margin:12px 0 0;font-size:18px;line-height:1.7;color:#4b5563;max-width:620px">채용 단계에서 확인한 역량을 입사 후에도 동일한 7개 지표로 평가합니다.</p>
+    </div>
+    <div style="width:100%;display:grid;grid-template-columns:var(--m-std-cols);align-items:stretch;text-align:left;position:relative">
+      <div style="flex:1 1 260px;min-width:0;background:#fff;border:2px solid #4f46e5;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;color:#0b0b0f;box-shadow:0 24px 60px rgba(79,70,229,.18)">
+        <div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:40px;font-weight:800;letter-spacing:-.04em;color:#a855f7">01</span><span style="font-size:12px;font-weight:700;color:#fff;background:#4f39f6;padding:5px 10px;border-radius:999px">대표 솔루션</span></div>
+        <span style="font-size:30px;font-weight:750;letter-spacing:-.03em">채용 평가</span>
+        <span style="font-size:16px;line-height:1.65;color:#4b5563">서류와 면접 사이, 지원자의 실제 문제해결 능력 및 실무 역량을 확인합니다.</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;min-height:48px"><div class="aq-link-h" style="position:relative;width:100%;height:4px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#a855f7,#4f46e5);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;top:-5px;left:-7px;animation:aqFlow 1.6s linear 0s infinite"></i></div><div class="aq-link-v" style="position:relative;width:4px;height:48px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,#a855f7,#4f46e5);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;left:-5px;top:-7px;animation:aqFlowV 1.6s linear 0s infinite"></i></div></div>
+      <div style="flex:1 1 260px;min-width:0;background:#fff;border:1.5px solid #e5e7eb;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;color:#0b0b0f;box-shadow:0 24px 60px rgba(79,70,229,.08)">
+        <span style="font-size:40px;font-weight:800;letter-spacing:-.04em;color:#4f46e5">02</span>
+        <span style="font-size:30px;font-weight:750;letter-spacing:-.03em">조직 진단</span>
+        <span style="font-size:16px;line-height:1.65;color:#4b5563">구성원의 역량을 부서 · 직급별로 진단하고, 교육 전후 변화를 숫자로 확인합니다.</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;min-height:48px"><div class="aq-link-h" style="position:relative;width:100%;height:4px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#4f46e5,#14b8a6);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;top:-5px;left:-7px;animation:aqFlow 1.6s linear 0s infinite"></i></div><div class="aq-link-v" style="position:relative;width:4px;height:48px"><i style="position:absolute;inset:0;border-radius:2px;background:linear-gradient(180deg,#4f46e5,#14b8a6);display:block"></i><i style="position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid #4f46e5;box-sizing:border-box;box-shadow:0 0 0 4px rgba(79,70,229,.12);display:block;left:-5px;top:-7px;animation:aqFlowV 1.6s linear 0s infinite"></i></div></div>
+      <div style="flex:1 1 260px;min-width:0;background:#fff;border:1.5px solid #e5e7eb;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(79,70,229,.08)">
+        <span style="font-size:40px;font-weight:800;letter-spacing:-.04em;color:#14b8a6">03</span>
+        <span style="font-size:30px;font-weight:750;letter-spacing:-.03em">역량 트래킹</span>
+        <span style="font-size:16px;line-height:1.65;color:#4b5563">조직에는 전체의 지형도를, 개인에게는 성장의 방향을 제시합니다.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff;padding:var(--m-sec);border-top:1px solid #f0f0f4">
+  <div style="max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <h2 style="margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.25">자주 묻는 질문</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:-12px">
+      <button data-tab="전체" aria-pressed="true" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">전체</button>
+      <button data-tab="차별점" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">차별점</button>
+      <button data-tab="방식" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">방식</button>
+      <button data-tab="참여자" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">참여자</button>
+      <button data-tab="도입" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">도입</button>
+      <button data-tab="가격" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">가격</button>
+      <button data-tab="보안" aria-pressed="false" type="button" class="aq-tab" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer">보안</button>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #e5e7eb">
+      <div class="aq-faq" data-cat="차별점" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a1" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">기존 인성·적성검사와 무엇이 다른가요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a1" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">기존 검사는 정해진 문항에 답하는 방식이라 실제 직무 역량을 측정하기 어렵습니다. AQbar는 지원자가 AI와 협업하며 직무 과제를 수행하는 ‘과정’ 전체를 분석합니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="방식" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a2" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">모두가 AI와 함께 문제를 풀면 변별력이 있나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a2" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">같은 AI를 써도, 문제를 풀어가는 방식은 천차만별입니다. 무엇을 묻고, 어떻게 검증하고, 어떤 판단을 내리는지, 그 사고 과정을 7개 지표로 측정합니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="차별점" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a3" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">채용 평가와 조직 진단은 무엇이 다른가요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a3" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">측정 지표와 분석 방식은 완전히 동일한 7개 지표를 씁니다. 다른 것은 리포트의 단위입니다. 채용은 개인을 비교하기 위한 것이고, 조직 진단은 부서·직급별 분포를 보기 위한 것입니다. 같은 기준을 쓰기 때문에 신규 인력과 기존 구성원을 나란히 비교하실 수 있습니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="방식" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a4" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">모든 직군을 평가할 수 있나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a4" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">AQbar는 전략, 기획, 마케팅, 사업개발, PM/PO 등 정량 기준이 부재한 직군의 실무에서의 판단 능력을 측정할 수 있습니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="참여자" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a5" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">참여자는 어떤 경험을 하게 되나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a5" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">실제 직무와 유사한 과제를 AI와 함께 해결하는 방식으로 진행되며, 평균 소요 시간은 60분입니다. 채용 과정에서는 지원자가 과제를 수행하며 해당 직무가 실제로 다루는 문제의 구조와 맥락을 미리 경험할 수 있고, AI를 업무 도구로 적극 활용하는 회사라면 회사의 일하는 방식을 자연스럽게 접하며 조직 문화에 대한 구체적인 인상을 형성할 수 있습니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="도입" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a6" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">도입까지 얼마나 걸리나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a6" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">과제 설계·Free Trial부터 첫 리포트까지 평균 1~2주 내에 시작하실 수 있습니다. 조직 상황에 맞춰 규모와 일정을 함께 협의해 드립니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="가격" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a7" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">가격은 어떻게 책정되나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a7" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">연간 채용·조직 규모에 따라 맞춤 견적을 제공합니다. 문의하기를 통해 상세 견적을 받아보실 수 있습니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="가격" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a8" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">무료로 먼저 체험해 볼 수 있나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a8" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">네, Free Trial로 비용 부담 없이 효과를 먼저 확인하실 수 있습니다. 신청 후 영업일 기준 24시간 이내에 담당자가 연락드려 안내해드립니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="도입" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a9" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">도입 후 기대 효과가 없으면 어떻게 되나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a9" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">Free Trial 기간 중 기대 효과가 검증되지 않으면 정식 계약 없이 종료하실 수 있습니다.</p>
+        </div>
+      <div class="aq-faq" data-cat="보안" style="border-bottom:1px solid #e5e7eb">
+          <button type="button" aria-expanded="false" aria-controls="faq-a10" style="width:100%;background:none;border:0;padding:24px 0;display:flex;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:19px;font-weight:700;color:#0b0b0f;cursor:pointer;letter-spacing:-.02em"><span style="flex:1">데이터는 어떻게 보관·관리되나요?</span><span class="aq-faq-icon" aria-hidden="true" style="font-size:22px;color:#4f46e5;font-weight:500;width:20px;text-align:center">+</span></button>
+          <p id="faq-a10" hidden style="margin:0;padding:0 40px 26px 0;font-size:16px;line-height:1.75;color:#4b5563;white-space:pre-line">모든 데이터는 보안 인증 서버에 암호화되어 보관되며, 보존 기간 만료 시 복구 불가능한 방식으로 자동 파기됩니다. 수집 항목·보관 기간·파기 절차를 사전에 안내해 드립니다.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="position:relative;background:#08080f;color:#fff;padding:var(--m-sec);overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(40% 60% at 50% 118%,#6d4cff 0%,transparent 70%),radial-gradient(25% 50% at 82% 112%,#14b8a6 0%,transparent 70%),radial-gradient(25% 50% at 18% 112%,#a855f7 0%,transparent 70%);opacity:.9"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:56px;align-items:center">
+    <div style="width:100%;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
+      <div style="font-family:'Paperlogy','Pretendard Variable',sans-serif;font-size:clamp(34px,8vw,104px);font-weight:800;letter-spacing:-.045em;line-height:1.05;white-space:nowrap">Beyond the <span style="background:linear-gradient(90deg,#c084fc,#818cf8 50%,#2dd4bf);-webkit-background-clip:text;background-clip:text;color:transparent">Answer</span></div>
+      <p style="margin:16px 0 0;font-size:19px;line-height:1.7;color:rgba(255,255,255,.78)">AI가 실행을 대신하는 시대, <b style="color:#d1d5db">AI와 함께 더 나은 판단을 내리는 힘</b>이 경쟁력입니다.<br><span style="white-space:nowrap"><b style="color:#d1d5db">실무에 필요한 문제해결력</b>을 데이터로 확인하세요.</span></p>
+    </div>
+    <div style="width:fit-content;max-width:100%;box-sizing:border-box;min-width:0;background:#fff;color:#0b0b0f;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 100px rgba(0,0,0,.45)">
+      <form id="aq-contact-form" novalidate style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:grid;grid-template-columns:var(--m-form-cols);align-items:center;gap:var(--m-form-gap)"><span id="aq-interest-label" style="font-size:14px;font-weight:600;color:#374151">관심 항목</span>
+            <div role="group" aria-labelledby="aq-interest-label" style="display:flex;flex-wrap:wrap;gap:8px">
+              <button data-pick="Free Trial" data-ft aria-pressed="true" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">Free Trial</button>
+              <button data-pick="채용 평가" aria-pressed="true" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">채용 평가</button>
+              <button data-pick="조직 진단" aria-pressed="false" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">조직 진단</button>
+              <button data-pick="샘플 리포트" aria-pressed="false" type="button" class="aq-pick" style="font-family:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;cursor:pointer">샘플 리포트</button>
+            </div>
+          </div>
+          <label style="display:grid;grid-template-columns:var(--m-form-cols);align-items:center;gap:var(--m-form-gap);font-size:14px;font-weight:600;color:#374151">담당자 이름<input name="name" autocomplete="name" required placeholder="홍길동" style="height:50px;border:1.5px solid #e5e7eb;border-radius:10px;padding:0 14px;font-family:inherit;font-size:16px;outline-color:#4f46e5"></label>
+          <label style="display:grid;grid-template-columns:var(--m-form-cols);align-items:center;gap:var(--m-form-gap);font-size:14px;font-weight:600;color:#374151">회사 이메일<input name="email" type="email" autocomplete="email" required placeholder="name@company.com" style="height:50px;border:1.5px solid #e5e7eb;border-radius:10px;padding:0 14px;font-family:inherit;font-size:16px;outline-color:#4f46e5"></label>
+          <label style="display:grid;grid-template-columns:var(--m-form-cols);align-items:center;gap:var(--m-form-gap);font-size:14px;font-weight:600;color:#374151">회사명<input name="company" autocomplete="organization" required placeholder="에이큐바" style="height:50px;border:1.5px solid #e5e7eb;border-radius:10px;padding:0 14px;font-family:inherit;font-size:16px;outline-color:#4f46e5"></label>
+          <button type="submit" class="hv-cta" style="height:56px;border:0;border-radius:12px;background:#4f39f6;color:#fff;font-family:inherit;font-size:17px;font-weight:700;cursor:pointer;margin-top:4px;box-shadow:0 14px 34px rgba(79,57,246,.35)">문의하기</button>
+          <span style="font-size:12px;color:#9ca3af;text-align:center">입력하신 정보는 문의 응대 목적으로만 이용하며 1년 이내 파기합니다.</span>
+          <span id="aq-form-error" role="alert" hidden style="font-size:13px;color:#e11d48;text-align:center"></span>
+        </form>
+      <div id="aq-contact-done" role="status" hidden style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:40px 0;text-align:center">
+          <span style="width:56px;height:56px;border-radius:50%;background:#14b8a6;color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center">✓</span>
+          <span style="font-size:22px;font-weight:750;letter-spacing:-.02em">문의가 접수되었습니다</span>
+          <span style="font-size:15px;color:#6b7280;line-height:1.6">영업일 기준 24시간 이내에 담당자가 연락드립니다.</span>
+        </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#08080f;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.08);padding:40px 24px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;font-size:13px;line-height:1.8">
+    <div style="display:flex;flex-direction:column;gap:10px"><img src="/assets/aqbar-logo-white.svg" alt="AQbar" style="height:22px;width:auto;align-self:flex-start;display:block"><span>AI 시대, 인재를 바라보는 새로운 기준을 만듭니다.</span></div>
+    <div style="display:flex;flex-direction:column">
+      <span>경기도 성남시 수정구 금토로 52, E동 5층 (경기스타트업브릿지)</span>
+      <span>주식회사 에이큐바 | 대표 전혜선 | 사업자등록번호 527-87-03935</span>
+      <span><a href="mailto:info@aqbar.ai" style="color:rgba(255,255,255,.75)">info@aqbar.ai</a> · <a href="/privacy/" style="color:rgba(255,255,255,.75)">개인정보 처리방침</a> · © 2026 AQbar</span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="/contact-config.js"></script>
+<script src="/contact-form.js"></script>
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function isNarrow() { return window.innerWidth < 760; }
+
+  // ── 상단 메뉴: 히어로를 지나면 라이트 모드 ──
+  var nav = document.getElementById('aq-nav');
+  var hero = document.getElementById('top');
+  function updateNav() {
+    var past = hero ? hero.getBoundingClientRect().bottom <= 68 : window.scrollY > 400;
+    nav.classList.toggle('is-light', past);
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ── 모바일 햄버거 메뉴 ──
+  var burger = document.getElementById('aq-burger');
+  var menu = document.getElementById('aq-menu');
+  function setMenu(open) {
+    menu.hidden = !open;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  }
+  burger.addEventListener('click', function () { setMenu(menu.hidden); });
+  menu.querySelectorAll('[data-close-menu]').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+
+  // ── 기존 서류 일러스트: 좁은 화면에서 축소 ──
+  function updateDocScale() {
+    var s = Math.min(1, Math.max(0.55, (window.innerWidth - 112) / 410));
+    root.style.setProperty('--doc-s', String(s));
+    root.style.setProperty('--doc-h', Math.round(300 * s) + 'px');
+  }
+  updateDocScale();
+  window.addEventListener('resize', function () {
+    updateDocScale();
+    if (!isNarrow()) setMenu(false);
+  });
+
+  // ── 히어로 문구 타이핑 ──
+  (function () {
+    var h1 = document.getElementById('aq-hero-title');
+    if (!h1 || reduceMotion) return;
+    var segs = Array.prototype.map.call(h1.querySelectorAll('[data-seg]'), function (el) {
+      return { el: el, kind: el.getAttribute('data-seg'), chars: Array.from(el.textContent) };
+    });
+    var n1 = segs[0].chars.length, nRest = 0;
+    for (var i = 1; i < segs.length; i++) nRest += segs[i].chars.length;
+    var t0 = null, lastShown = -1, built = false, bar = null;
+
+    function render(t) {
+      var shown = (t < 0.3 ? 0 : t < 1.4 ? Math.round(n1 * (t - 0.3) / 1.1) : n1) +
+                  (t < 2.5 ? 0 : Math.min(nRest, Math.round(nRest * (t - 2.5) / 2.0)));
+      var done = t >= 4.6, caretOn = t < 5.0 && Math.floor(t * 2.6) % 2 === 0;
+      if (shown !== lastShown || (done && !built)) {
+        lastShown = shown;
+        var idx = 0, placed = false;
+        segs.forEach(function (s) {
+          var k = Math.max(0, Math.min(s.chars.length, shown - idx)); idx += s.chars.length;
+          s.el.textContent = s.chars.slice(0, k).join('');
+          if (!placed && (k < s.chars.length || idx >= shown)) {
+            var c = document.createElement('span'); c.className = 'aq-caret';
+            bar = document.createElement('i'); c.appendChild(bar); s.el.appendChild(c); placed = true;
+          }
+          if (k < s.chars.length) {
+            var rest = document.createElement('span'); rest.style.visibility = 'hidden';
+            rest.textContent = s.chars.slice(k).join(''); s.el.appendChild(rest);
+          }
+          if (s.kind === 'k' && done) {
+            s.el.classList.add('is-done');
+            var line = document.createElement('i'); line.className = 'aq-key-line'; s.el.appendChild(line);
+          }
+        });
+        if (done) built = true;
+      }
+      if (bar) bar.style.opacity = caretOn ? '1' : '0';
+    }
+    render(0);
+    function step(now) {
+      if (t0 === null) t0 = now;
+      var t = (now - t0) / 1000;
+      render(t);
+      if (t < 6.6) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  })();
+
+  // ── Beyond the Answer 취소선·밑줄 ──
+  var beyond = document.querySelector('[data-beyond]');
+  if (beyond && 'IntersectionObserver' in window) {
+    var bio = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { beyond.classList.add('is-on'); bio.disconnect(); }
+    }, { threshold: 0.8 });
+    bio.observe(beyond);
+  } else if (beyond) { beyond.classList.add('is-on'); }
+
+  // ── 서비스 영상: 가까워지면 내려받고, 화면에 보일 때만 재생 ──
+  (function () {
+    var v = document.querySelector('video[data-film]');
+    if (!v) return;
+    var visible = false;
+    function load() {
+      if (v.getAttribute('src')) return;
+      v.src = isNarrow() ? '/media/film-720.mp4' : '/media/film-1080.mp4';
+      v.preload = 'auto';
+    }
+    function play() { load(); var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { if (es[0].isIntersecting) load(); }, { rootMargin: '800px 0px' }).observe(v);
+      new IntersectionObserver(function (es) {
+        visible = es[0].isIntersecting;
+        if (visible) play(); else v.pause();
+      }, { threshold: 0.6 }).observe(v);
+    } else { load(); }
+    document.querySelectorAll('[data-play-film]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        load();
+        try { v.currentTime = 0; } catch (e) {}
+        play();
+      });
+    });
+  })();
+
+  // ── 맞춤 면접 질문: 스크롤에 따라 하나씩 ──
+  (function () {
+    var list = document.querySelector('[data-qlist]');
+    if (!list) return;
+    var items = list.querySelectorAll('.aq-q'), last = -1;
+    function update() {
+      var r = list.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh * 0.92 - r.top) / (r.height + vh * 0.25);
+      var qn = Math.max(0, Math.min(5, Math.ceil(p * 5)));
+      if (qn === last) return; last = qn;
+      list.style.setProperty('--q-line', (qn / 5 * 100) + '%');
+      items.forEach(function (it, i) { it.classList.toggle('is-on', i < qn); });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // ── FAQ: 탭 필터 + 하나씩 펼치기 ──
+  (function () {
+    var tabs = document.querySelectorAll('.aq-tab');
+    var faqs = document.querySelectorAll('.aq-faq');
+    function closeAll() {
+      faqs.forEach(function (f) {
+        f.querySelector('button').setAttribute('aria-expanded', 'false');
+        f.querySelector('.aq-faq-icon').textContent = '+';
+        f.querySelector('p').hidden = true;
+      });
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var cat = tab.getAttribute('data-tab');
+        tabs.forEach(function (t) { t.setAttribute('aria-pressed', t === tab ? 'true' : 'false'); });
+        closeAll();
+        faqs.forEach(function (f) { f.hidden = !(cat === '전체' || f.getAttribute('data-cat') === cat); });
+      });
+    });
+    faqs.forEach(function (f) {
+      var btn = f.querySelector('button');
+      btn.addEventListener('click', function () {
+        var wasOpen = btn.getAttribute('aria-expanded') === 'true';
+        closeAll();
+        if (!wasOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          f.querySelector('.aq-faq-icon').textContent = '−';
+          f.querySelector('p').hidden = false;
+        }
+      });
+    });
+  })();
+})();
+</script>
+</body>
+</html>
