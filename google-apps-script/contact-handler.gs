@@ -16,7 +16,7 @@
 
 var SHEET_NAME = '문의';
 // 👇 알림을 받을 본인의 이메일 주소로 반드시 변경해 주세요!
-var MY_EMAIL = 'stella@aqbar.ai';
+var MY_EMAIL = 'stella@aqbar.ai,jay.jung@aqbar.ai';
 
 function doPost(e) {
   try {
